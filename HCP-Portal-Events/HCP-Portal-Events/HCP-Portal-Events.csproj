@@ -15,7 +15,6 @@
     <Folder Include="DataAccess\Configurations\" />
     <Folder Include="DataAccess\Interfaces\" />
     <Folder Include="DataAccess\Reposatiores\" />
-    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>
