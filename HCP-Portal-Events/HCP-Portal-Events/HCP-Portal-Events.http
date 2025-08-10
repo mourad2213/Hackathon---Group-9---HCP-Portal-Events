@@ -1,0 +1,6 @@
+@HCP_Portal_Events_HostAddress = http://localhost:5210
+
+GET {{HCP_Portal_Events_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
