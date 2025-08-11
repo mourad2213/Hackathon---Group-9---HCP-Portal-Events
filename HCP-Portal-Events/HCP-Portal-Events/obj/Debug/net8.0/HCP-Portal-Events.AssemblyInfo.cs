@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HCP-Portal-Events")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8096742f5afffe2c23aab9470319fcaf33497fb9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16a070f7bbe84341436ddbfe016dac7b6b6b1ec1")]
 [assembly: System.Reflection.AssemblyProductAttribute("HCP-Portal-Events")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HCP-Portal-Events")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
