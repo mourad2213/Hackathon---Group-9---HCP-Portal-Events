@@ -24,7 +24,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="DataAccess\Interfaces\" />
     <Folder Include="DataAccess\Reposatiores\" />
-    <Folder Include="Models\DTOs\" />
   </ItemGroup>
 
 </Project>
