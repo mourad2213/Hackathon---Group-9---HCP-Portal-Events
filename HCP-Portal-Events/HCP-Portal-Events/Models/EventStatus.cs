@@ -6,6 +6,6 @@ namespace HCP_Portal_Events.Models
     {
         public int Id { get; set; }
         public string Status { get; set; }
-        public ICollection<Event> MyEntities { get; set; } 
+        public ICollection<Event> Events { get; set; } 
     }
 }

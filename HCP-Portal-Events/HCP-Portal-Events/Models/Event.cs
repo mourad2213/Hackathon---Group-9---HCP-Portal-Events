@@ -15,7 +15,10 @@ namespace HCP_Portal_Events.Models
         public int eventStatusId { get; set; }
         public EventStatus eventStatus { get; set; } 
         public int eventFieldId { get; set; }
-        public EventField eventField { get; set; } 
+        public EventField eventField { get; set; }
+        public ICollection<UserRegistrationToEvent> EventUsers { get; set; }
+        public ICollection<Activity> EventActivities { get; set; }
+
 
     }
 }

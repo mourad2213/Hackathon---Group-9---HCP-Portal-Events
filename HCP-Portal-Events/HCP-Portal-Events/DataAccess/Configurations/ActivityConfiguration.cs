@@ -22,20 +22,18 @@ namespace HCP_Portal_Events.DataAccess.Configurations
             builder.Property(x => x.Date)
                 .IsRequired();
 
-            builder.Property(x => x.Speaker)
-                .HasMaxLength(50);
-
             builder.Property(x => x.ActivityTypeId)
-                .IsRequired()
-                .HasDefaultValue(0);
-
-            builder.Property(x => x.EventId)
                 .IsRequired();
 
             builder.HasOne(e => e.ActivityType)
                 .WithMany()
                 .HasForeignKey(e => e.ActivityTypeId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(e => e.Event)
+                .WithMany()
+                .HasForeignKey(e => e.EventId)
+                .OnDelete(DeleteBehavior.Restrict);
 
 
         }

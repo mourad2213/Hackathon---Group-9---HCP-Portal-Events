@@ -29,7 +29,7 @@ namespace HCP_Portal_Events.DataAccess.Configurations
             builder.HasOne(x => x.Speciality)
                 .WithMany()
                 .HasForeignKey(x => x.SpecialityId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
             
 
         }

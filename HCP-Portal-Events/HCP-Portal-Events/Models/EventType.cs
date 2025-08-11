@@ -7,6 +7,6 @@ namespace HCP_Portal_Events.Models
         public int Id { get; set; }
         public string Type { get; set; }
 
-        public ICollection<Event> eventTypes { get; set; } 
+        public ICollection<Event> Events { get; set; } 
     }
 }
