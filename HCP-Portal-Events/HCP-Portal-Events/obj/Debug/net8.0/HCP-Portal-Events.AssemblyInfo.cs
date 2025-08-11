@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HCP-Portal-Events")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb63a37e925e897d234ee95a33e28722e768ec95")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6035c97ab5f1e30aa59e24551f325faf6a8da8d5")]
+>>>>>>> fb63a37 (Add relations between events and activity entities and Event and User entities)
 [assembly: System.Reflection.AssemblyProductAttribute("HCP-Portal-Events")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HCP-Portal-Events")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
