@@ -1,4 +1,5 @@
 ﻿using HCP_Portal_Events.DataAccess.Configurations;
+using HCP_Portal_Events.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
@@ -6,9 +7,10 @@ namespace MyApiProject.Data
 {
     public class ApplicationDbContext : DbContext
     {
+        public DbSet<Event> Events { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
