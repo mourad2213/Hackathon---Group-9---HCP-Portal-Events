@@ -35,7 +35,12 @@ namespace HCP_Portal_Events.DataAccess.Configurations
             builder.HasOne(e => e.ActivityType)
                 .WithMany()
                 .HasForeignKey(e => e.ActivityTypeId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(e => e.Event)
+                .WithMany()
+                .HasForeignKey(e => e.EventId)
+                .OnDelete(DeleteBehavior.Restrict);
 
 
         }
