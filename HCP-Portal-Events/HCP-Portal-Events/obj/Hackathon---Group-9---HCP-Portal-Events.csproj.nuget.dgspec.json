@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "D:\\EvaHackathon2025\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events.csproj": {}
+    "D:\\EvaHackathon2025\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\Hackathon---Group-9---HCP-Portal-Events.csproj": {}
   },
   "projects": {
-    "D:\\EvaHackathon2025\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events.csproj": {
+    "D:\\EvaHackathon2025\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\Hackathon---Group-9---HCP-Portal-Events.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\EvaHackathon2025\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events.csproj",
-        "projectName": "HCP-Portal-Events",
-        "projectPath": "D:\\EvaHackathon2025\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events.csproj",
+        "projectUniqueName": "D:\\EvaHackathon2025\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\Hackathon---Group-9---HCP-Portal-Events.csproj",
+        "projectName": "Hackathon---Group-9---HCP-Portal-Events",
+        "projectPath": "D:\\EvaHackathon2025\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\Hackathon---Group-9---HCP-Portal-Events.csproj",
         "packagesPath": "C:\\Users\\waelj\\.nuget\\packages\\",
         "outputPath": "D:\\EvaHackathon2025\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\obj\\",
         "projectStyle": "PackageReference",
