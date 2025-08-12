@@ -1,4 +1,3 @@
 .vs/
-HCP-Portal-Events/.vs/
-/obj/
-/bin/
+bin/
+obj/
