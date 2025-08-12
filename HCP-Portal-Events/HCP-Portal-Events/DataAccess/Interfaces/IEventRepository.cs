@@ -6,7 +6,8 @@ namespace HCP_Portal_Events.DataAccess.Interfaces
     {
         Task<IEnumerable<EventReadDTO>> GetAllUpcomingEventsAsync();
         Task<IEnumerable<EventReadDTO>> GetAllPreviousEventsAsync();
-
+        /*Task<IEnumerable<EventReadActivitesandAttachmentsDTO>> GetEventAgenda();*/
+        public Task<EventReadActivitesandAttachmentsDTO> GetEventWithActivitiesAndAttachments(int id);
         Task<EventReadDTO> GetEventByIdAsync(int id);
 
     }

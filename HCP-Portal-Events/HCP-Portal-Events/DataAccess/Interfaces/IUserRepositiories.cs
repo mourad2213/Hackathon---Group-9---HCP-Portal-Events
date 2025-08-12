@@ -10,8 +10,8 @@ namespace HCP_Portal_Events.DataAccess.Interfaces
         Task<User> GetUserByIdAsync(int id);
         Task<bool> UpdateUserAsync(int id, UserUpdateDto userUpdateDto);
 
-        Task<ICollection<Event>> GetUserPerviousEvents(int userId);
-        Task<ICollection<Event>> GetUserUpcomingEvents(int userId);
-        Task<ICollection<Event>> GetUserSpecialityEvents(User user);
+        Task<IEnumerable<Event>> GetUserPerviousEvents(int userId);
+        Task<IEnumerable<Event>> GetUserUpcomingEvents(int userId);
+        Task<IEnumerable<Event>> GetUserSpecialityEvents(User user);
     }
 }

@@ -10,10 +10,10 @@ namespace HCP_Portal_Events.DataAccess.Repositories
 {
     public class UserRepositories : IUserRepositiories
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
         public UserRepositories(ApplicationDbContext context)
         {
-            _context = context;
+            _context = context;   
         }
 
 
@@ -24,7 +24,6 @@ namespace HCP_Portal_Events.DataAccess.Repositories
             user.Email = userUpdateDto.Email;
             user.PhoneNumber = userUpdateDto.PhoneNumber;
             user.ProfilePicture = userUpdateDto.ProfilePicture;
-            await _context.SaveChangesAsync();
             return true;
 
         }
@@ -39,7 +38,7 @@ namespace HCP_Portal_Events.DataAccess.Repositories
 
 
 
-        async Task<ICollection<Event>> IUserRepositiories.GetUserPerviousEvents(int userId)
+        async Task<IEnumerable<Event>> IUserRepositiories.GetUserPerviousEvents(int userId)
         {
             return await _context.UserRegistrationToEvents
             .Where(ur => ur.UserId == userId)
@@ -50,7 +49,7 @@ namespace HCP_Portal_Events.DataAccess.Repositories
 
         }
 
-        async Task<ICollection<Event>> IUserRepositiories.GetUserUpcomingEvents(int userId)
+        async Task<IEnumerable<Event>> IUserRepositiories.GetUserUpcomingEvents(int userId)
         {
             return await _context.UserRegistrationToEvents
             .Where(ur => ur.UserId == userId)
@@ -59,7 +58,7 @@ namespace HCP_Portal_Events.DataAccess.Repositories
             .Select(ur => ur.Event)
             .ToListAsync();
         }
-        async Task<ICollection<Event>> IUserRepositiories.GetUserSpecialityEvents(User user)
+        async Task<IEnumerable<Event>> IUserRepositiories.GetUserSpecialityEvents(User user)
         {
             return await _context.Events
             .Where(e => e.eventSpecialityId == user.SpecialityId)
