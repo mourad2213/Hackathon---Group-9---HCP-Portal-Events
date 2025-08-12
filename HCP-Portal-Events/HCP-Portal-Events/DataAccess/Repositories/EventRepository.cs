@@ -15,7 +15,7 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
         public async Task<IEnumerable<EventReadDTO>> GetAllPreviousEventsAsync()
         {
             return await _context.Events
-                .Where(e => e.Date < DateTime.Now) 
+                .Where(e => e.Status == "Previous") 
                 .Select(e => new EventReadDTO
                         {
                     Id = e.Id,
@@ -32,7 +32,7 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
         public  async Task<IEnumerable<EventReadDTO>> GetAllUpcomingEventsAsync()
         {
             return await _context.Events
-                .Where(e => e.Date >= DateTime.Now) 
+                .Where(e => e.Status == "Upcoming") 
                 .Select(e => new EventReadDTO
                 {
                     Id = e.Id,
@@ -44,7 +44,7 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     EventField = e.eventField.Field 
                 })
                 .ToListAsync();
-                }
+        }
 
         public async Task<EventReadDTO?> GetEventByIdAsync(int id)
         {

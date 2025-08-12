@@ -44,9 +44,9 @@ namespace HCP_Portal_Events.DataAccess.Configurations
                    .HasForeignKey(e => e.eventStatusId)
                    .OnDelete(DeleteBehavior.Restrict);*/
 
-            builder.HasOne(e => e.eventField)
+            builder.HasOne(e => e.eventSpeciality)
                    .WithMany()
-                   .HasForeignKey(e => e.eventFieldId)
+                   .HasForeignKey(e => e.eventSpecialityId)
                    .OnDelete(DeleteBehavior.Restrict);
         }
     }
