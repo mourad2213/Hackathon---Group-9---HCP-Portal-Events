@@ -6,14 +6,14 @@ using MyApiProject.Data;
 using MySqlX.XDevAPI.Common;
 
 
-namespace HCP_Portal_Events.DataAccess.Reposatiores
+namespace HCP_Portal_Events.DataAccess.Repositories
 {
     public class UserRepositories : IUserRepositiories
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
         public UserRepositories(ApplicationDbContext context)
         {
-            _context = context;
+            _context = context;   
         }
 
 
@@ -24,7 +24,6 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
             user.Email = userUpdateDto.Email;
             user.PhoneNumber = userUpdateDto.PhoneNumber;
             user.ProfilePicture = userUpdateDto.ProfilePicture;
-            await _context.SaveChangesAsync();
             return true;
 
         }
@@ -39,9 +38,9 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
 
 
 
-        async Task<ICollection<Event>> IUserRepositiories.GetUserPerviousEvents(int userId)
+        async Task<IEnumerable<Event>> IUserRepositiories.GetUserPerviousEvents(int userId)
         {
-            return await _context.UserRegistirationToEvents
+            return await _context.UserRegistrationToEvents
             .Where(ur => ur.UserId == userId)
             .Include(ur => ur.Event)
             .Where(ur => ur.Event.Date < DateTime.Now)
@@ -50,16 +49,16 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
 
         }
 
-        async Task<ICollection<Event>> IUserRepositiories.GetUserUpcomingEvents(int userId)
+        async Task<IEnumerable<Event>> IUserRepositiories.GetUserUpcomingEvents(int userId)
         {
-            return await _context.UserRegistirationToEvents
+            return await _context.UserRegistrationToEvents
             .Where(ur => ur.UserId == userId)
             .Include(ur => ur.Event)
             .Where(ur => ur.Event.Date > DateTime.Now)
             .Select(ur => ur.Event)
             .ToListAsync();
         }
-        async Task<ICollection<Event>> IUserRepositiories.GetUserSpecialityEvents(User user)
+        async Task<IEnumerable<Event>> IUserRepositiories.GetUserSpecialityEvents(User user)
         {
             return await _context.Events
             .Where(e => e.eventSpecialityId == user.SpecialityId)
