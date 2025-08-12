@@ -15,6 +15,9 @@ namespace HCP_Portal_Events.Models
         public string Status { get; set; } 
         /* public int eventStatusId { get; set; }
          public EventStatus eventStatus { get; set; } */
+        /*public int eventStatusId { get; set; }
+        public EventStatus eventStatus { get; set; } */
+        public string linkToevent {  get; set; }
         public int eventSpecialityId { get; set; }
         public Speciality eventSpeciality { get; set; }
         public ICollection<UserRegistrationToEvent> EventUsers { get; set; }
