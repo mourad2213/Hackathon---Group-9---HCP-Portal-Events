@@ -1,0 +1,17 @@
+﻿using Microsoft.Extensions.Logging;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace HCP_Portal_Events.Models
+{
+    public class User
+    {
+        public int Id { get; set;}
+        public string UserName { get; set;}
+        public string Email {  get; set; }
+        public long PhoneNumber {  get; set; }
+        public string ProfilePicture {  get; set; }
+        public int SpecialityId { get; set; }
+        public Speciality Speciality { get; set; }
+        public ICollection<UserRegistrationToEvent> UserEvents { get; set; }
+    }
+}

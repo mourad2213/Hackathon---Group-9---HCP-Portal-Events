@@ -1,1 +1,9 @@
-{"GlobalPropertiesHash":"1XDhCQgZsToDlXd0LPavbXTOloffblIxYBmpi5A7dSY=","FingerprintPatternsHash":"gq3WsqcKBUGTSNle7RKKyXRIwh7M8ccEqOqYvIzoM04=","PropertyOverridesHash":"8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=","InputHashes":["/KdqWTc4ipxM3ShHUcX8\u002B7/Vn5kjbZgMDrS8L\u002Bzf2rg=","fhui99Ne3aDL8QBOQfTEpYsC3cgkuod6ZRrkxh1\u002B2iU="],"CachedAssets":{},"CachedCopyCandidates":{}}
+<<<<<<< HEAD
+<<<<<<< HEAD
+{"GlobalPropertiesHash":"1XDhCQgZsToDlXd0LPavbXTOloffblIxYBmpi5A7dSY=","FingerprintPatternsHash":"gq3WsqcKBUGTSNle7RKKyXRIwh7M8ccEqOqYvIzoM04=","PropertyOverridesHash":"8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=","InputHashes":["/KdqWTc4ipxM3ShHUcX8\u002B7/Vn5kjbZgMDrS8L\u002Bzf2rg=","v4ZFEYEQtWImSkkC6jypOa/CJVH2JTzL1BN\u002BDlAXxYo="],"CachedAssets":{},"CachedCopyCandidates":{}}
+=======
+{"GlobalPropertiesHash":"40fmXBzoGb63LPUBXyYnE5yVlbrfMKVrUpjW7qyihvI=","FingerprintPatternsHash":"gq3WsqcKBUGTSNle7RKKyXRIwh7M8ccEqOqYvIzoM04=","PropertyOverridesHash":"8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=","InputHashes":["ipVFMzB/FeHr6FqVokV3kvSEL2QcpjmAfilqkhk1ATc=","65dzwBsn1K2QDbU8OCKdb7XaGTGW8LHprVu62SBYfUY="],"CachedAssets":{},"CachedCopyCandidates":{}}
+>>>>>>> fb63a37 (Add relations between events and activity entities and Event and User entities)
+=======
+{"GlobalPropertiesHash":"40fmXBzoGb63LPUBXyYnE5yVlbrfMKVrUpjW7qyihvI=","FingerprintPatternsHash":"gq3WsqcKBUGTSNle7RKKyXRIwh7M8ccEqOqYvIzoM04=","PropertyOverridesHash":"8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=","InputHashes":["ipVFMzB/FeHr6FqVokV3kvSEL2QcpjmAfilqkhk1ATc=","65dzwBsn1K2QDbU8OCKdb7XaGTGW8LHprVu62SBYfUY="],"CachedAssets":{},"CachedCopyCandidates":{}}
+>>>>>>> fb63a37 (Add relations between events and activity entities and Event and User entities)
