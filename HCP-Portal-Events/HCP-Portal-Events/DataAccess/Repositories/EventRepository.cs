@@ -24,7 +24,7 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Date = e.Date,
                     imageUrl = e.imageUrl, 
                     EventType = e.eventType.Type,
-                    EventField = e.eventField.Field
+                    EventField = e.eventSpeciality.Field
                 })
                 .ToListAsync();
         }
@@ -41,7 +41,7 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Date = e.Date,
                     imageUrl = e.imageUrl,
                     EventType = e.eventType.Type,   
-                    EventField = e.eventField.Field 
+                    EventField = e.eventSpeciality.Field 
                 })
                 .ToListAsync();
         }
@@ -58,7 +58,7 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Date = e.Date,
                     imageUrl = e.imageUrl,
                     EventType = e.eventType.Type,   
-                    EventField = e.eventField.Field 
+                    EventField = e.eventSpeciality.Field 
                 })
                 .FirstOrDefaultAsync();
         }

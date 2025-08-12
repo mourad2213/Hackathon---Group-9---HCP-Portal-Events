@@ -11,7 +11,7 @@ namespace MyApiProject.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Activity> Activites { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
-        public DbSet<UserRegistrationToEvent> UserRegistirationToEvents { get; set; }
+        public DbSet<UserRegistrationToEvent> UserRegistrationToEvents { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
