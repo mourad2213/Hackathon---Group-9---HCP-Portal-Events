@@ -3,7 +3,6 @@ using HCP_Portal_Events.DataAccess.Reposatiores;
 using HCP_Portal_Events.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
 using MyApiProject.Data;
-using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,9 +12,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+var app = builder.Build();
 
 builder.Services.AddScoped<IUserRegistrationRepository, UserRegistrationRepository>();
 builder.Services.AddScoped<IEventRepository, EventRepository>();
