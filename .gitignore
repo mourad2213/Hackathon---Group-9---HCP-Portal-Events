@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+=======
 .vs/
+<<<<<<< HEAD
 bin/
 obj/
+=======
+HCP-Portal-Events/.vs/
+/obj/
+<<<<<<< HEAD
+/bin/
+>>>>>>> fb63a37 (Add relations between events and activity entities and Event and User entities)
+=======
+/bin/
+>>>>>>> fb63a37 (Add relations between events and activity entities and Event and User entities)
+>>>>>>> 9e15e323ef2fa9478c0d0a3e560e144501c5247c
