@@ -6,7 +6,7 @@ using MyApiProject.Data;
 using MySqlX.XDevAPI.Common;
 
 
-namespace HCP_Portal_Events.DataAccess.Reposatiores
+namespace HCP_Portal_Events.DataAccess.Repositories
 {
     public class UserRepositories : IUserRepositiories
     {
@@ -41,7 +41,7 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
 
         async Task<ICollection<Event>> IUserRepositiories.GetUserPerviousEvents(int userId)
         {
-            return await _context.UserRegistirationToEvents
+            return await _context.UserRegistrationToEvents
             .Where(ur => ur.UserId == userId)
             .Include(ur => ur.Event)
             .Where(ur => ur.Event.Date < DateTime.Now)
@@ -52,7 +52,7 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
 
         async Task<ICollection<Event>> IUserRepositiories.GetUserUpcomingEvents(int userId)
         {
-            return await _context.UserRegistirationToEvents
+            return await _context.UserRegistrationToEvents
             .Where(ur => ur.UserId == userId)
             .Include(ur => ur.Event)
             .Where(ur => ur.Event.Date > DateTime.Now)
