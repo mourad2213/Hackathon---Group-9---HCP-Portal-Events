@@ -3,20 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|c:\\users\\mourad\\source\\repos\\hackathon---group-9---hcp-portal-events\\hcp-portal-events\\hcp-portal-events\\models\\activity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|solutionrelative:hcp-portal-events\\models\\activity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|c:\\users\\mourad\\source\\repos\\hackathon---group-9---hcp-portal-events\\hcp-portal-events\\hcp-portal-events\\dataaccess\\configurations\\userregistrationtoeventconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|solutionrelative:hcp-portal-events\\dataaccess\\configurations\\userregistrationtoeventconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|c:\\users\\mourad\\source\\repos\\hackathon---group-9---hcp-portal-events\\hcp-portal-events\\hcp-portal-events\\models\\activitytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|solutionrelative:hcp-portal-events\\models\\activitytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|c:\\users\\mourad\\source\\repos\\hackathon---group-9---hcp-portal-events\\hcp-portal-events\\hcp-portal-events\\dataaccess\\configurations\\attachmentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|solutionrelative:hcp-portal-events\\dataaccess\\configurations\\attachmentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|c:\\users\\mourad\\source\\repos\\hackathon---group-9---hcp-portal-events\\hcp-portal-events\\hcp-portal-events\\dataaccess\\configurations\\activityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|solutionrelative:hcp-portal-events\\dataaccess\\configurations\\activityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|c:\\users\\mourad\\source\\repos\\hackathon---group-9---hcp-portal-events\\hcp-portal-events\\hcp-portal-events\\dataaccess\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|solutionrelative:hcp-portal-events\\dataaccess\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|c:\\users\\mourad\\source\\repos\\hackathon---group-9---hcp-portal-events\\hcp-portal-events\\hcp-portal-events\\hcp-portal-events.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|solutionrelative:hcp-portal-events\\hcp-portal-events.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|c:\\users\\mourad\\source\\repos\\hackathon---group-9---hcp-portal-events\\hcp-portal-events\\hcp-portal-events\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|solutionrelative:hcp-portal-events\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|c:\\users\\mourad\\source\\repos\\hackathon---group-9---hcp-portal-events\\hcp-portal-events\\hcp-portal-events\\dataaccess\\reposatiores\\userrepositories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|solutionrelative:hcp-portal-events\\dataaccess\\reposatiores\\userrepositories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|c:\\users\\mourad\\source\\repos\\hackathon---group-9---hcp-portal-events\\hcp-portal-events\\hcp-portal-events\\dataaccess\\interfaces\\iuserrepositiories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|solutionrelative:hcp-portal-events\\dataaccess\\interfaces\\iuserrepositiories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|c:\\users\\mourad\\source\\repos\\hackathon---group-9---hcp-portal-events\\hcp-portal-events\\hcp-portal-events\\dataaccess\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|solutionrelative:hcp-portal-events\\dataaccess\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|c:\\users\\mourad\\source\\repos\\hackathon---group-9---hcp-portal-events\\hcp-portal-events\\hcp-portal-events\\models\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|solutionrelative:hcp-portal-events\\models\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|c:\\users\\mourad\\source\\repos\\hackathon---group-9---hcp-portal-events\\hcp-portal-events\\hcp-portal-events\\models\\activity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|solutionrelative:hcp-portal-events\\models\\activity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|c:\\users\\mourad\\source\\repos\\hackathon---group-9---hcp-portal-events\\hcp-portal-events\\hcp-portal-events\\models\\activitytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}|HCP-Portal-Events\\HCP-Portal-Events.csproj|solutionrelative:hcp-portal-events\\models\\activitytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,8 +54,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 10,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AttachmentConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\DataAccess\\Configurations\\AttachmentConfiguration.cs",
+              "RelativeDocumentMoniker": "HCP-Portal-Events\\DataAccess\\Configurations\\AttachmentConfiguration.cs",
+              "ToolTip": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\DataAccess\\Configurations\\AttachmentConfiguration.cs",
+              "RelativeToolTip": "HCP-Portal-Events\\DataAccess\\Configurations\\AttachmentConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T15:33:32.301Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
@@ -41,55 +82,141 @@
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ActivityType.cs",
-              "DocumentMoniker": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\Models\\ActivityType.cs",
-              "RelativeDocumentMoniker": "HCP-Portal-Events\\Models\\ActivityType.cs",
-              "ToolTip": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\Models\\ActivityType.cs",
-              "RelativeToolTip": "HCP-Portal-Events\\Models\\ActivityType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAoAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "UserRepositories.cs",
+              "DocumentMoniker": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\DataAccess\\Reposatiores\\UserRepositories.cs",
+              "RelativeDocumentMoniker": "HCP-Portal-Events\\DataAccess\\Reposatiores\\UserRepositories.cs",
+              "ToolTip": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\DataAccess\\Reposatiores\\UserRepositories.cs",
+              "RelativeToolTip": "HCP-Portal-Events\\DataAccess\\Reposatiores\\UserRepositories.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T11:51:18.316Z",
+              "WhenOpened": "2025-08-11T14:23:36.302Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Activity.cs",
-              "DocumentMoniker": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\Models\\Activity.cs",
-              "RelativeDocumentMoniker": "HCP-Portal-Events\\Models\\Activity.cs",
-              "ToolTip": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\Models\\Activity.cs",
-              "RelativeToolTip": "HCP-Portal-Events\\Models\\Activity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "IUserRepositiories.cs",
+              "DocumentMoniker": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\DataAccess\\Interfaces\\IUserRepositiories.cs",
+              "RelativeDocumentMoniker": "HCP-Portal-Events\\DataAccess\\Interfaces\\IUserRepositiories.cs",
+              "ToolTip": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\DataAccess\\Interfaces\\IUserRepositiories.cs",
+              "RelativeToolTip": "HCP-Portal-Events\\DataAccess\\Interfaces\\IUserRepositiories.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T11:36:55.77Z",
+              "WhenOpened": "2025-08-11T14:21:25.403Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\Models\\User.cs",
+              "RelativeDocumentMoniker": "HCP-Portal-Events\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\Models\\User.cs",
+              "RelativeToolTip": "HCP-Portal-Events\\Models\\User.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T22:45:08.686Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\DataAccess\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "HCP-Portal-Events\\DataAccess\\ApplicationDbContext.cs",
               "ToolTip": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\DataAccess\\ApplicationDbContext.cs",
               "RelativeToolTip": "HCP-Portal-Events\\DataAccess\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-10T11:27:14.17Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "HCP-Portal-Events.csproj",
-              "DocumentMoniker": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events.csproj",
-              "RelativeDocumentMoniker": "HCP-Portal-Events\\HCP-Portal-Events.csproj",
-              "ToolTip": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events.csproj",
-              "RelativeToolTip": "HCP-Portal-Events\\HCP-Portal-Events.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-10T11:25:54.13Z"
+              "DocumentIndex": 0,
+              "Title": "UserRegistrationToEventConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\DataAccess\\Configurations\\UserRegistrationToEventConfiguration.cs",
+              "RelativeDocumentMoniker": "HCP-Portal-Events\\DataAccess\\Configurations\\UserRegistrationToEventConfiguration.cs",
+              "ToolTip": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\DataAccess\\Configurations\\UserRegistrationToEventConfiguration.cs",
+              "RelativeToolTip": "HCP-Portal-Events\\DataAccess\\Configurations\\UserRegistrationToEventConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T13:11:26.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\DataAccess\\Configurations\\UserConfiguration.cs",
+              "RelativeDocumentMoniker": "HCP-Portal-Events\\DataAccess\\Configurations\\UserConfiguration.cs",
+              "ToolTip": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\DataAccess\\Configurations\\UserConfiguration.cs",
+              "RelativeToolTip": "HCP-Portal-Events\\DataAccess\\Configurations\\UserConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T23:19:19.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserDTO.cs",
+              "DocumentMoniker": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\Models\\DTOs\\UserDTO.cs",
+              "RelativeDocumentMoniker": "HCP-Portal-Events\\Models\\DTOs\\UserDTO.cs",
+              "ToolTip": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\Models\\DTOs\\UserDTO.cs",
+              "RelativeToolTip": "HCP-Portal-Events\\Models\\DTOs\\UserDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T14:05:05.069Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ActivityConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\DataAccess\\Configurations\\ActivityConfiguration.cs",
+              "RelativeDocumentMoniker": "HCP-Portal-Events\\DataAccess\\Configurations\\ActivityConfiguration.cs",
+              "ToolTip": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\DataAccess\\Configurations\\ActivityConfiguration.cs",
+              "RelativeToolTip": "HCP-Portal-Events\\DataAccess\\Configurations\\ActivityConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T23:05:13.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ActivityType.cs",
+              "DocumentMoniker": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\Models\\ActivityType.cs",
+              "RelativeDocumentMoniker": "HCP-Portal-Events\\Models\\ActivityType.cs",
+              "ToolTip": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\Models\\ActivityType.cs",
+              "RelativeToolTip": "HCP-Portal-Events\\Models\\ActivityType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T11:51:18.316Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Activity.cs",
+              "DocumentMoniker": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\Models\\Activity.cs",
+              "RelativeDocumentMoniker": "HCP-Portal-Events\\Models\\Activity.cs",
+              "ToolTip": "C:\\Users\\mourad\\source\\repos\\Hackathon---Group-9---HCP-Portal-Events\\HCP-Portal-Events\\HCP-Portal-Events\\Models\\Activity.cs",
+              "RelativeToolTip": "HCP-Portal-Events\\Models\\Activity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T11:36:55.77Z",
+              "EditorCaption": ""
             }
           ]
         }

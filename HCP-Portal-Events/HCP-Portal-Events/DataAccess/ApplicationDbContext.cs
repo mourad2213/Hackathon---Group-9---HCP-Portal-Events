@@ -1,14 +1,21 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HCP_Portal_Events.DataAccess.Configurations;
+using HCP_Portal_Events.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
 namespace MyApiProject.Data
 {
     public class ApplicationDbContext : DbContext
     {
+        public DbSet<Event> Events { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Activity> Activites { get; set; }
+        public DbSet<Attachment> Attachments { get; set; }
+        public DbSet<UserRegistrationToEvent> UserRegistirationToEvents { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-<<<<<<< HEAD
-=======
+    
 
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -17,7 +24,7 @@ namespace MyApiProject.Data
             modelBuilder.ApplyConfiguration(new ActivityConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new AttachmentConfiguration());
->>>>>>> fb63a37 (Add relations between events and activity entities and Event and User entities)
+            modelBuilder.ApplyConfiguration(new UserRegistrationToEventConfiguration());
         }
 
     }
