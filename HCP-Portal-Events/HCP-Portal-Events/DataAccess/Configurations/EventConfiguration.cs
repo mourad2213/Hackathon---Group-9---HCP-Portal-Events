@@ -34,7 +34,7 @@ namespace HCP_Portal_Events.DataAccess.Configurations
                    .HasForeignKey(e => e.eventTypeId)
                    .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Property(e => e.eventStatus)
+            builder.Property(e => e.Status)
                     .HasComputedColumnSql(
                            "CASE WHEN [Date] < GETDATE() THEN 'Previous' ELSE 'Upcoming' END",
                             stored: true

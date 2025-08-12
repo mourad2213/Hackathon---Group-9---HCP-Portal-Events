@@ -1,3 +1,6 @@
+using HCP_Portal_Events.DataAccess.Interfaces;
+using HCP_Portal_Events.DataAccess.Reposatiores;
+using HCP_Portal_Events.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
 using MyApiProject.Data;
 
@@ -13,6 +16,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();
 
+builder.Services.AddScoped<IUserRegistrationRepository, UserRegistrationRepository>();
+builder.Services.AddScoped<IEventRepository, EventRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
