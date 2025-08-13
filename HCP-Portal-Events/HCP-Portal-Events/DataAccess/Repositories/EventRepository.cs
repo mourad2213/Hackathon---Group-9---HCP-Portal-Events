@@ -110,7 +110,7 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                 .ToListAsync();
         }*/
 
-        public async Task<EventReadDTO?> GetEventByIdAsync(int id)
+        public async Task<EventReadDTO> GetEventByIdAsync(int id)
         {
             return await _context.Events
                 .Where(e => e.Id == id)

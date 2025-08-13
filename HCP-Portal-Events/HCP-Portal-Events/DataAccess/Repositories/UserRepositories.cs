@@ -28,17 +28,15 @@ namespace HCP_Portal_Events.DataAccess.Repositories
 
         }
 
-        Task<User> IUserRepositiories.GetUserByIdAsync(int id)
+        public async Task<User> GetUserByIdAsync(int id)
         {
-            var user = _context.Users
-            .Include(u => u.Speciality)
-             .Where(u => u.Id == id);
-            return (Task<User>)user;
+            return await _context.Users
+                .Include(u => u.Speciality)
+                .FirstOrDefaultAsync(u => u.Id == id);
         }
 
 
-
-        async Task<IEnumerable<Event>> IUserRepositiories.GetUserPerviousEvents(int userId)
+        public  async Task<IEnumerable<Event>> GetUserPerviousEvents(int userId)
         {
             return await _context.UserRegistrationToEvents
             .Where(ur => ur.UserId == userId)
@@ -49,7 +47,7 @@ namespace HCP_Portal_Events.DataAccess.Repositories
 
         }
 
-        async Task<IEnumerable<Event>> IUserRepositiories.GetUserUpcomingEvents(int userId)
+        public async Task<IEnumerable<Event>> GetUserUpcomingEvents(int userId)
         {
             return await _context.UserRegistrationToEvents
             .Where(ur => ur.UserId == userId)
@@ -58,7 +56,7 @@ namespace HCP_Portal_Events.DataAccess.Repositories
             .Select(ur => ur.Event)
             .ToListAsync();
         }
-        async Task<IEnumerable<Event>> IUserRepositiories.GetUserSpecialityEvents(User user)
+        public async Task<IEnumerable<Event>> GetUserSpecialityEvents(User user)
         {
             return await _context.Events
             .Where(e => e.eventSpecialityId == user.SpecialityId)
