@@ -4,6 +4,8 @@
     {
         IUserRegistrationRepository UserRegistrationRepository { get; }
         IEventRepository EventRepository { get; }
+
+        IUserRepositiories UserRepositiory { get; }
         Task<int> CompleteAsync();
     }
 }
