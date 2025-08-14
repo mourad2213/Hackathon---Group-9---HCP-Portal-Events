@@ -29,7 +29,8 @@ namespace HCP_Portal_Events.DataAccess.Configurations
                    .HasMaxLength(500);
 
             builder.HasOne(e => e.EventType)
-                   .WithMany(e => e.Events)
+
+                   .WithMany(a =>a.Events)
                    .HasForeignKey(e => e.EventTypeId)
                    .OnDelete(DeleteBehavior.Restrict);
 
@@ -43,9 +44,9 @@ namespace HCP_Portal_Events.DataAccess.Configurations
                    .HasForeignKey(e => e.eventStatusId)
                    .OnDelete(DeleteBehavior.Restrict);*/
 
-            builder.HasOne(e => e.EventSpeciality)
-                   .WithMany()
-                   .HasForeignKey(e => e.EventSpecialityId)
+            builder.HasOne(e => e.eventSpeciality)
+                   .WithMany(a => a.Events)
+                   .HasForeignKey(e => e.eventSpecialityId)
                    .OnDelete(DeleteBehavior.Restrict);
         }
     }

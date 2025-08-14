@@ -13,26 +13,18 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<ApplicationDbContext>((services, options) =>
+builder.Services.AddDbContext<ApplicationDbContext>((provider, options) =>
 {
-    var logger = services.GetRequiredService<ILogger<ApplicationDbContext>>();
-
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection"),
-        sqlOptions =>
+        options => 
         {
-            // Configure retry policy
-            sqlOptions.EnableRetryOnFailure(
-                maxRetryCount: 5,
-                maxRetryDelay: TimeSpan.FromSeconds(30),
+            options.EnableRetryOnFailure(
+                maxRetryCount: 3,
+                maxRetryDelay: TimeSpan.FromSeconds(10),
                 errorNumbersToAdd: null);
-
-          
+            
         });
-
-    // Enable detailed errors for debugging
-    options.EnableDetailedErrors();
-    options.EnableSensitiveDataLogging(); // Only in development
 });
 builder.Services.AddScoped<IUserRegistrationRepository, UserRegistrationRepository>();
 builder.Services.AddScoped<IEventRepository, EventRepository>();

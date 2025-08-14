@@ -1,4 +1,4 @@
-﻿using HCP_Portal_Events.DataAccess.Configurations;
+using HCP_Portal_Events.DataAccess.Configurations;
 using HCP_Portal_Events.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -253,4 +253,3 @@ namespace MyApiProject.Data
 
     }
 }
-
