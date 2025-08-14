@@ -31,6 +31,7 @@ namespace MyApiProject.Data
             modelBuilder.ApplyConfiguration(new AttachmentConfiguration());
             modelBuilder.ApplyConfiguration(new UserRegistrationToEventConfiguration());
             modelBuilder.ApplyConfiguration(new ActivitySpeakerConfiguration());
+
         }
         private static void SeedData(ModelBuilder modelBuilder)
         {
