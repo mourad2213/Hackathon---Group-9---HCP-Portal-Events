@@ -20,7 +20,7 @@ namespace HCP_Portal_Events.DataAccess.Configurations
                 .IsRequired();
 
             builder.HasOne(a => a.Activity)
-                   .WithMany()
+                   .WithMany(a => a.Attachments)
                    .HasForeignKey(a => a.ActivityId)
                    .OnDelete(DeleteBehavior.Restrict);
         }

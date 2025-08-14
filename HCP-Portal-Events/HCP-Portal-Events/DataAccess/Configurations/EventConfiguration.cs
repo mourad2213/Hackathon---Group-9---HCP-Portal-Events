@@ -23,8 +23,7 @@ namespace HCP_Portal_Events.DataAccess.Configurations
                    .IsRequired();
 
             builder.Property(e => e.noOfAttendees)
-                   .HasDefaultValue(0)
-                   .ValueGeneratedNever();
+                   .HasDefaultValue(0);
 
             builder.Property(e => e.imageUrl)
                    .HasMaxLength(500);
