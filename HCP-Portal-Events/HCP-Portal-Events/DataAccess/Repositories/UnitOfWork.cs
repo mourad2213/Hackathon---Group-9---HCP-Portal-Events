@@ -10,12 +10,14 @@ namespace HCP_Portal_Events.DataAccess.Repositories
 
         public IUserRegistrationRepository UserRegistrationRepository { get; }
         public IEventRepository EventRepository { get; }
+        public IUserRepositiories UserRepositiory { get; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
             UserRegistrationRepository = new UserRegistrationRepository(_context);
             EventRepository = new EventRepository(_context);
+            UserRepositiory = new UserRepositories(_context);
         }
 
         public async Task<int> CompleteAsync()

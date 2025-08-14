@@ -31,6 +31,7 @@ namespace MyApiProject.Data
             modelBuilder.ApplyConfiguration(new AttachmentConfiguration());
             modelBuilder.ApplyConfiguration(new UserRegistrationToEventConfiguration());
             modelBuilder.ApplyConfiguration(new ActivitySpeakerConfiguration());
+
         }
         private static void SeedData(ModelBuilder modelBuilder)
         {
@@ -247,6 +248,200 @@ namespace MyApiProject.Data
         }
 
 
+    private static void SeedData(ModelBuilder modelBuilder)
+        {
+            // Seed Specialities
+            modelBuilder.Entity<Speciality>().HasData(
+                new Speciality { Id = 1, Field = "Cardiology" },
+                new Speciality { Id = 2, Field = "Neurology" },
+                new Speciality { Id = 3, Field = "Pediatrics" },
+                new Speciality { Id = 4, Field = "Oncology" },
+                new Speciality { Id = 5, Field = "General Practice" }
+            );
+
+            // Seed EventTypes (only CME and Webinar)
+            modelBuilder.Entity<EventType>().HasData(
+                new EventType { Id = 1, Type = "CME" },
+                new EventType { Id = 2, Type = "Webinar" }
+            );
+
+            // Seed Users
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    Id = 1,
+                    UserName = "dr_smith",
+                    Email = "dr.smith@example.com",
+                    PhoneNumber = 1234567890,
+                    ProfilePicture = "https://example.com/profiles/smith.jpg",
+                    SpecialityId = 1 // Cardiology
+                },
+                new User
+                {
+                    Id = 2,
+                    UserName = "dr_jones",
+                    Email = "dr.jones@example.com",
+                    PhoneNumber = 2345678901,
+                    ProfilePicture = "https://example.com/profiles/jones.jpg",
+                    SpecialityId = 2 // Neurology
+                },
+                new User
+                {
+                    Id = 3,
+                    UserName = "dr_williams",
+                    Email = "dr.williams@example.com",
+                    PhoneNumber = 3456789012,
+                    ProfilePicture = "https://example.com/profiles/williams.jpg",
+                    SpecialityId = 3 // Pediatrics
+                },
+                new User
+                {
+                    Id = 4,
+                    UserName = "dr_brown",
+                    Email = "dr.brown@example.com",
+                    PhoneNumber = 4567890123,
+                    ProfilePicture = "https://example.com/profiles/brown.jpg",
+                    SpecialityId = 4 // Oncology
+                },
+                new User
+                {
+                    Id = 5,
+                    UserName = "dr_taylor",
+                    Email = "dr.taylor@example.com",
+                    PhoneNumber = 5678901234,
+                    ProfilePicture = "https://example.com/profiles/taylor.jpg",
+                    SpecialityId = 5 // General Practice
+                }
+            );
+
+            // Seed Events (only CME and Webinar types)
+            var now = DateTime.Now;
+            modelBuilder.Entity<Event>().HasData(
+                new Event
+                {
+                    Id = 1,
+                    Title = "Cardiology CME 2023",
+                    Description = "Continuing Medical Education for Cardiology",
+                    Date = now.AddDays(30),
+                    noOfAttendees = 120,
+                    imageUrl = "https://example.com/events/cardio-cme.jpg",
+                    eventTypeId = 1, // CME
+                    Status = "Upcoming",
+                    linkToevent = "https://zoom.us/cardio-cme-2023",
+                    eventSpecialityId = 1 // Cardiology
+                },
+                new Event
+                {
+                    Id = 2,
+                    Title = "Pediatric CME Update",
+                    Description = "Latest updates in pediatric medicine",
+                    Date = now.AddDays(-15), // Past event
+                    noOfAttendees = 80,
+                    imageUrl = "https://example.com/events/ped-cme.jpg",
+                    eventTypeId = 1, // CME
+                    Status = "Pervious",
+                    linkToevent = "",
+                    eventSpecialityId = 3 // Pediatrics
+                },
+                // Webinar Events
+                new Event
+                {
+                    Id = 3,
+                    Title = "Neurology Webinar Series",
+                    Description = "Monthly webinars on neurology advancements",
+                    Date = now.AddDays(7),
+                    noOfAttendees = 75,
+                    imageUrl = "https://example.com/events/neuro-webinar.jpg",
+                    eventTypeId = 2, // Webinar
+                    Status = "Upcoming",
+                    linkToevent = "https://zoom.us/neuro-webinar",
+                    eventSpecialityId = 2 // Neurology
+                },
+                new Event
+                {
+                    Id = 4,
+                    Title = "Oncology Webinar",
+                    Description = "Recent advances in cancer treatment",
+                    Date = now.AddDays(45),
+                    noOfAttendees = 90,
+                    imageUrl = "https://example.com/events/onco-webinar.jpg",
+                    eventTypeId = 2, // Webinar
+                    Status = "Upcoming",
+                    linkToevent = "https://zoom.us/onco-webinar",
+                    eventSpecialityId = 4 // Oncology
+                },
+                new Event
+                {
+                    Id = 5,
+                    Title = "GP Webinar: Annual Updates",
+                    Description = "Important updates for general practitioners",
+                    Date = now.AddDays(-5), // Recently completed
+                    noOfAttendees = 150,
+                    imageUrl = "https://example.com/events/gp-webinar.jpg",
+                    eventTypeId = 2, // Webinar
+                    Status = "Pervious",
+                    linkToevent = "",
+                    eventSpecialityId = 5 // General Practice
+                }
+            );
+
+            // Seed UserEventRegistrations with RegistrationDate and IsCancelled
+            var registrationDate = now.AddDays(-20);
+            modelBuilder.Entity<UserRegistrationToEvent>().HasData(
+                // CME Event Registrations
+                new
+                {
+                    UserId = 1,
+                    EventId = 1,
+                    RegistrationDate = registrationDate.AddDays(1),
+                    IsCancelled = false
+                }, // Dr Smith -> Cardiology CME
+                new
+                {
+                    UserId = 3,
+                    EventId = 2,
+                    RegistrationDate = registrationDate.AddDays(2),
+                    IsCancelled = false
+                }, // Dr Williams -> Pediatric CME
+                new
+                {
+                    UserId = 1,
+                    EventId = 2,
+                    RegistrationDate = registrationDate.AddDays(3),
+                    IsCancelled = true
+                }, // Dr Smith -> Pediatric CME (cancelled)
+
+                // Webinar Registrations
+                new
+                {
+                    UserId = 2,
+                    EventId = 3,
+                    RegistrationDate = registrationDate.AddDays(4),
+                    IsCancelled = false
+                }, // Dr Jones -> Neuro Webinar
+                new
+                {
+                    UserId = 4,
+                    EventId = 4,
+                    RegistrationDate = registrationDate.AddDays(5),
+                    IsCancelled = false
+                }, // Dr Brown -> Oncology Webinar
+                new
+                {
+                    UserId = 5,
+                    EventId = 5,
+                    RegistrationDate = registrationDate.AddDays(6),
+                    IsCancelled = false
+                }, // Dr Taylor -> GP Webinar
+                new
+                {
+                    UserId = 3,
+                    EventId = 5,
+                    RegistrationDate = registrationDate.AddDays(7),
+                    IsCancelled = true
+                }  // Dr Williams -> GP Webinar (cancelled)
+            );
+        }
     }
 }
 
