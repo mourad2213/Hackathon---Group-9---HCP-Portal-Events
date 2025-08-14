@@ -1,4 +1,4 @@
-﻿using HCP_Portal_Events.DataAccess.Interfaces;
+using HCP_Portal_Events.DataAccess.Interfaces;
 using HCP_Portal_Events.Models.DTOs;
 using Microsoft.EntityFrameworkCore;
 using MyApiProject.Data;
@@ -25,9 +25,9 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Title = e.Title,
                     Description = e.Description,
                     Date = e.Date,
-                    imageUrl = e.imageUrl,
+                    imageUrl = e.ImageUrl,
                     EventType = e.EventType.Type,
-                    EventField = e.eventSpeciality.Field
+                    EventField = e.EventSpeciality.Field
                 })
                 .ToListAsync();
         }
@@ -42,9 +42,9 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Title = e.Title,
                     Description = e.Description,
                     Date = e.Date,
-                    imageUrl = e.imageUrl,
+                    imageUrl = e.ImageUrl,
                     EventType = e.EventType.Type,
-                    EventField = e.eventSpeciality.Field
+                    EventField = e.EventSpeciality.Field
                 })
                 .ToListAsync();
         }
@@ -60,9 +60,9 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Description = e.Description,
                     Date = e.Date,
                     Status = e.Status,
-                    imageUrl = e.imageUrl,
+                    imageUrl = e.ImageUrl,
                     EventType = e.EventType.Type,
-                    EventField = e.eventSpeciality.Field
+                    EventField = e.EventSpeciality.Field
                 })
                 .ToListAsync();
         }
@@ -78,9 +78,9 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Description = e.Description,
                     Date = e.Date,
                     Status = e.Status,
-                    imageUrl = e.imageUrl,
+                    imageUrl = e.ImageUrl,
                     EventType = e.EventType.Type,
-                    EventField = e.eventSpeciality.Field
+                    EventField = e.EventSpeciality.Field
                 })
                 .ToListAsync();
         }
@@ -95,9 +95,9 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Title = e.Title,
                     Description = e.Description,
                     Date = e.Date,
-                    imageUrl = e.imageUrl,
+                    imageUrl = e.ImageUrl,
                     EventType = e.EventType.Type,
-                    EventField = e.eventSpeciality.Field,
+                    EventField = e.EventSpeciality.Field,
 
                     EventActivities = e.EventActivities
                         .OrderBy(a => a.no)
@@ -142,9 +142,9 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Title = e.Title,
                     Description = e.Description,
                     Date = e.Date,
-                    imageUrl = e.imageUrl,
+                    imageUrl = e.ImageUrl,
                     EventType = e.EventType.Type,
-                    EventField = e.eventSpeciality.Field
+                    EventField = e.EventSpeciality.Field
                 })
                 .FirstOrDefaultAsync();
         }
@@ -165,9 +165,9 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Description = e.Description,
                     Date = e.Date,
                     Status = e.Status,
-                    imageUrl = e.imageUrl,
+                    imageUrl = e.ImageUrl,
                     EventType = e.EventType.Type,
-                    EventField = e.eventSpeciality.Field
+                    EventField = e.EventSpeciality.Field
                 })
                 .ToListAsync();
         }

@@ -1,4 +1,5 @@
 ﻿using HCP_Portal_Events.DataAccess.Interfaces;
+using HCP_Portal_Events.Models.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HCP_Portal_Events.Controllers
@@ -16,17 +17,17 @@ namespace HCP_Portal_Events.Controllers
 
         // GET: api/events/previous
         [HttpGet("previous")]
-        public async Task<IActionResult> GetPreviousEvents()
+        public async Task<ActionResult<IEnumerable<EventReadDTO>>> GetPreviousEvents()
         {
-            try
-            {
+            /*try
+            {*/
                 var events = await _unitOfWork.EventRepository.GetAllPreviousEventsAsync();
 
                 if (events == null || !events.Any())
                     return NotFound(new { Message = "No previous events found." });
 
                 return Ok(events);
-            }
+            /*}
             catch (Exception ex)
             {
                 return StatusCode(500, new
@@ -34,12 +35,12 @@ namespace HCP_Portal_Events.Controllers
                     Message = "An unexpected error occurred while fetching previous events.",
                     Details = ex.Message
                 });
-            }
+            }*/
         }
 
         // GET: api/events/upcoming
         [HttpGet("upcoming")]
-        public async Task<IActionResult> GetUpcomingEvents()
+        public async Task<ActionResult<IEnumerable<EventReadDTO>>> GetUpcomingEvents()
         {
             try
             {
@@ -62,7 +63,7 @@ namespace HCP_Portal_Events.Controllers
 
         // GET: api/events/type/{type}
         [HttpGet("type/{type}")]
-        public async Task<IActionResult> GetEventsByType(string type)
+        public async Task<ActionResult<IEnumerable<EventReadDTO>>> GetEventsByType(string type)
         {
             if (string.IsNullOrWhiteSpace(type))
                 return BadRequest(new { Message = "Event type cannot be empty." });
@@ -88,7 +89,7 @@ namespace HCP_Portal_Events.Controllers
 
         // GET: api/events/status/{status}
         [HttpGet("status/{status}")]
-        public async Task<IActionResult> GetEventsByStatus(string status)
+        public async Task<ActionResult<IEnumerable<EventReadDTO>>> GetEventsByStatus(string status)
         {
             if (string.IsNullOrWhiteSpace(status))
                 return BadRequest(new { Message = "Status cannot be empty." });
@@ -114,19 +115,19 @@ namespace HCP_Portal_Events.Controllers
 
         // GET: api/events/{id}
         [HttpGet("{id:int}")]
-        public async Task<IActionResult> GetEventById(int id)
+        public async Task<ActionResult<EventReadDTO>> GetEventById(int id)
         {
             if (id <= 0)
                 return BadRequest(new { Message = "Invalid event ID." });
 
             try
             {
-                var Event = await _unitOfWork.EventRepository.GetEventByIdAsync(id);
+                var eventEntity = await _unitOfWork.EventRepository.GetEventByIdAsync(id);
 
-                if (Event == null)
+                if (eventEntity == null)
                     return NotFound(new { Message = $"Event with ID {id} not found." });
 
-                return Ok(Event);
+                return Ok(eventEntity);
             }
             catch (Exception ex)
             {
@@ -140,19 +141,19 @@ namespace HCP_Portal_Events.Controllers
 
         // GET: api/events/{id}/activities
         [HttpGet("{id:int}/activities")]
-        public async Task<IActionResult> GetEventWithActivities(int id)
+        public async Task<ActionResult<EventReadActivitesandAttachmentsDTO>> GetEventWithActivities(int id)
         {
             if (id <= 0)
                 return BadRequest(new { Message = "Invalid event ID." });
 
             try
             {
-                var Event = await _unitOfWork.EventRepository.GetEventWithActivitiesAndAttachments(id);
+                var eventEntity = await _unitOfWork.EventRepository.GetEventWithActivitiesAndAttachments(id);
 
-                if (Event == null)
+                if (eventEntity == null)
                     return NotFound(new { Message = $"Event with ID {id} not found." });
 
-                return Ok(Event);
+                return Ok(eventEntity);
             }
             catch (Exception ex)
             {
@@ -163,9 +164,10 @@ namespace HCP_Portal_Events.Controllers
                 });
             }
         }
-        // GET: api/events/search/name=keyword
+
+        // GET: api/events/search?name=keyword
         [HttpGet("search")]
-        public async Task<IActionResult> SearchEvents(string name)
+        public async Task<ActionResult<IEnumerable<EventReadDTO>>> SearchEvents(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
                 return BadRequest(new { Message = "Search term cannot be empty." });
@@ -188,6 +190,5 @@ namespace HCP_Portal_Events.Controllers
                 });
             }
         }
-
     }
 }
