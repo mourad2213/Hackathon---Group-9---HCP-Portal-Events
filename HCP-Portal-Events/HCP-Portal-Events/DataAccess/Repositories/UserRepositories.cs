@@ -59,7 +59,7 @@ namespace HCP_Portal_Events.DataAccess.Repositories
         public async Task<IEnumerable<Event>> GetUserSpecialityEvents(User user)
         {
             return await _context.Events
-            .Where(e => e.eventSpecialityId == user.SpecialityId)
+            .Where(e => e.EventSpecialityId == user.SpecialityId)
             .OrderBy(e => e.Date)
             .ToListAsync();
         }

@@ -64,7 +64,7 @@ namespace HCP_Portal_Events.Migrations
                         {
                             Id = 1,
                             ActivityTypeId = 1,
-                            Date = new DateTime(2025, 9, 8, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757),
+                            Date = new DateTime(2025, 1, 26, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Introduction to cardiology principles",
                             EventId = 1,
                             Title = "Cardio Basics Module",
@@ -74,7 +74,7 @@ namespace HCP_Portal_Events.Migrations
                         {
                             Id = 2,
                             ActivityTypeId = 2,
-                            Date = new DateTime(2025, 8, 4, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757),
+                            Date = new DateTime(2024, 12, 22, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Hands-on pediatric patient care",
                             EventId = 2,
                             Title = "Pediatric Care Activity",
@@ -84,7 +84,7 @@ namespace HCP_Portal_Events.Migrations
                         {
                             Id = 3,
                             ActivityTypeId = 1,
-                            Date = new DateTime(2025, 8, 19, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757),
+                            Date = new DateTime(2025, 1, 6, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Fundamentals of neurology",
                             EventId = 3,
                             Title = "Neuro Module 1",
@@ -227,11 +227,26 @@ namespace HCP_Portal_Events.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("EventSpecialityId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("EventStatusId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("EventTypeId")
+                    b.Property<int>("EventTypeId")
                         .HasColumnType("int");
+
+                    b.Property<string>("ImageUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("LinkToEvent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NoOfAttendees")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
 
                     b.Property<int?>("SpecialityId")
                         .HasColumnType("int");
@@ -239,32 +254,16 @@ namespace HCP_Portal_Events.Migrations
                     b.Property<string>("Status")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("nvarchar(max)")
-                        .HasComputedColumnSql("CASE WHEN [Date] < GETDATE() THEN 'Previous' ELSE 'Upcoming' END", true);
+                        .HasComputedColumnSql("CASE WHEN [Date] < GETDATE() THEN 'Previous' ELSE 'Upcoming' END", false);
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<int>("eventSpecialityId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("eventTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("imageUrl")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("linkToevent")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("noOfAttendees")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValue(0);
-
                     b.HasKey("Id");
+
+                    b.HasIndex("EventSpecialityId");
 
                     b.HasIndex("EventStatusId");
 
@@ -272,77 +271,73 @@ namespace HCP_Portal_Events.Migrations
 
                     b.HasIndex("SpecialityId");
 
-                    b.HasIndex("eventSpecialityId");
-
-                    b.HasIndex("eventTypeId");
-
                     b.ToTable("Events", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2025, 9, 13, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757),
+                            Date = new DateTime(2025, 10, 28, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Continuing Medical Education for Cardiology",
+                            EventSpecialityId = 1,
+                            EventTypeId = 1,
+                            ImageUrl = "https://example.com/events/cardio-cme.jpg",
+                            LinkToEvent = "https://zoom.us/cardio-cme-2023",
+                            NoOfAttendees = 120,
                             Status = "Upcoming",
-                            Title = "Cardiology CME 2023",
-                            eventSpecialityId = 1,
-                            eventTypeId = 1,
-                            imageUrl = "https://example.com/events/cardio-cme.jpg",
-                            linkToevent = "https://zoom.us/cardio-cme-2023",
-                            noOfAttendees = 120
+                            Title = "Cardiology CME 2023"
                         },
                         new
                         {
                             Id = 2,
-                            Date = new DateTime(2025, 7, 30, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757),
+                            Date = new DateTime(2024, 12, 17, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Latest updates in pediatric medicine",
-                            Status = "Pervious",
-                            Title = "Pediatric CME Update",
-                            eventSpecialityId = 3,
-                            eventTypeId = 1,
-                            imageUrl = "https://example.com/events/ped-cme.jpg",
-                            linkToevent = "",
-                            noOfAttendees = 80
+                            EventSpecialityId = 3,
+                            EventTypeId = 1,
+                            ImageUrl = "https://example.com/events/ped-cme.jpg",
+                            LinkToEvent = "",
+                            NoOfAttendees = 80,
+                            Status = "Previous",
+                            Title = "Pediatric CME Update"
                         },
                         new
                         {
                             Id = 3,
-                            Date = new DateTime(2025, 8, 21, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757),
+                            Date = new DateTime(2025, 1, 8, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Monthly webinars on neurology advancements",
+                            EventSpecialityId = 2,
+                            EventTypeId = 2,
+                            ImageUrl = "https://example.com/events/neuro-webinar.jpg",
+                            LinkToEvent = "https://zoom.us/neuro-webinar",
+                            NoOfAttendees = 75,
                             Status = "Upcoming",
-                            Title = "Neurology Webinar Series",
-                            eventSpecialityId = 2,
-                            eventTypeId = 2,
-                            imageUrl = "https://example.com/events/neuro-webinar.jpg",
-                            linkToevent = "https://zoom.us/neuro-webinar",
-                            noOfAttendees = 75
+                            Title = "Neurology Webinar Series"
                         },
                         new
                         {
                             Id = 4,
-                            Date = new DateTime(2025, 9, 28, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757),
+                            Date = new DateTime(2025, 2, 15, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Recent advances in cancer treatment",
+                            EventSpecialityId = 4,
+                            EventTypeId = 2,
+                            ImageUrl = "https://example.com/events/onco-webinar.jpg",
+                            LinkToEvent = "https://zoom.us/onco-webinar",
+                            NoOfAttendees = 90,
                             Status = "Upcoming",
-                            Title = "Oncology Webinar",
-                            eventSpecialityId = 4,
-                            eventTypeId = 2,
-                            imageUrl = "https://example.com/events/onco-webinar.jpg",
-                            linkToevent = "https://zoom.us/onco-webinar",
-                            noOfAttendees = 90
+                            Title = "Oncology Webinar"
                         },
                         new
                         {
                             Id = 5,
-                            Date = new DateTime(2025, 8, 9, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757),
+                            Date = new DateTime(2024, 12, 27, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Important updates for general practitioners",
-                            Status = "Pervious",
-                            Title = "GP Webinar: Annual Updates",
-                            eventSpecialityId = 5,
-                            eventTypeId = 2,
-                            imageUrl = "https://example.com/events/gp-webinar.jpg",
-                            linkToevent = "",
-                            noOfAttendees = 150
+                            EventSpecialityId = 5,
+                            EventTypeId = 2,
+                            ImageUrl = "https://example.com/events/gp-webinar.jpg",
+                            LinkToEvent = "",
+                            NoOfAttendees = 150,
+                            Status = "Previous",
+                            Title = "GP Webinar: Annual Updates"
                         });
                 });
 
@@ -542,49 +537,49 @@ namespace HCP_Portal_Events.Migrations
                             EventId = 1,
                             UserId = 1,
                             IsCancelled = false,
-                            RegistrationDate = new DateTime(2025, 7, 26, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757)
+                            RegistrationDate = new DateTime(2024, 12, 13, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             EventId = 2,
                             UserId = 3,
                             IsCancelled = false,
-                            RegistrationDate = new DateTime(2025, 7, 27, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757)
+                            RegistrationDate = new DateTime(2024, 12, 14, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             EventId = 2,
                             UserId = 1,
                             IsCancelled = true,
-                            RegistrationDate = new DateTime(2025, 7, 28, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757)
+                            RegistrationDate = new DateTime(2024, 12, 15, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             EventId = 3,
                             UserId = 2,
                             IsCancelled = false,
-                            RegistrationDate = new DateTime(2025, 7, 29, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757)
+                            RegistrationDate = new DateTime(2024, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             EventId = 4,
                             UserId = 4,
                             IsCancelled = false,
-                            RegistrationDate = new DateTime(2025, 7, 30, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757)
+                            RegistrationDate = new DateTime(2024, 12, 17, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             EventId = 5,
                             UserId = 5,
                             IsCancelled = false,
-                            RegistrationDate = new DateTime(2025, 7, 31, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757)
+                            RegistrationDate = new DateTime(2024, 12, 18, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             EventId = 5,
                             UserId = 3,
                             IsCancelled = true,
-                            RegistrationDate = new DateTime(2025, 8, 1, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757)
+                            RegistrationDate = new DateTime(2024, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -639,33 +634,29 @@ namespace HCP_Portal_Events.Migrations
 
             modelBuilder.Entity("HCP_Portal_Events.Models.Event", b =>
                 {
+                    b.HasOne("HCP_Portal_Events.Models.Speciality", "EventSpeciality")
+                        .WithMany()
+                        .HasForeignKey("EventSpecialityId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("HCP_Portal_Events.Models.EventStatus", null)
                         .WithMany("Events")
                         .HasForeignKey("EventStatusId");
 
-                    b.HasOne("HCP_Portal_Events.Models.EventType", null)
+                    b.HasOne("HCP_Portal_Events.Models.EventType", "EventType")
                         .WithMany("Events")
-                        .HasForeignKey("EventTypeId");
+                        .HasForeignKey("EventTypeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("HCP_Portal_Events.Models.Speciality", null)
                         .WithMany("Events")
                         .HasForeignKey("SpecialityId");
 
-                    b.HasOne("HCP_Portal_Events.Models.Speciality", "eventSpeciality")
-                        .WithMany()
-                        .HasForeignKey("eventSpecialityId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                    b.Navigation("EventSpeciality");
 
-                    b.HasOne("HCP_Portal_Events.Models.EventType", "eventType")
-                        .WithMany()
-                        .HasForeignKey("eventTypeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("eventSpeciality");
-
-                    b.Navigation("eventType");
+                    b.Navigation("EventType");
                 });
 
             modelBuilder.Entity("HCP_Portal_Events.Models.User", b =>

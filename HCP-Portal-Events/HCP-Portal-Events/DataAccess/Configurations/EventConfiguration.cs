@@ -22,30 +22,30 @@ namespace HCP_Portal_Events.DataAccess.Configurations
             builder.Property(e => e.Date)
                    .IsRequired();
 
-            builder.Property(e => e.noOfAttendees)
+            builder.Property(e => e.NoOfAttendees)
                    .HasDefaultValue(0);
 
-            builder.Property(e => e.imageUrl)
+            builder.Property(e => e.ImageUrl)
                    .HasMaxLength(500);
 
-            builder.HasOne(e => e.eventType)
-                   .WithMany()
-                   .HasForeignKey(e => e.eventTypeId)
+            builder.HasOne(e => e.EventType)
+                   .WithMany(e => e.Events)
+                   .HasForeignKey(e => e.EventTypeId)
                    .OnDelete(DeleteBehavior.Restrict);
 
             builder.Property(e => e.Status)
-                    .HasComputedColumnSql(
-                           "CASE WHEN [Date] < GETDATE() THEN 'Previous' ELSE 'Upcoming' END",
-                            stored: true
+    .HasComputedColumnSql(
+        "CASE WHEN [Date] < GETDATE() THEN 'Previous' ELSE 'Upcoming' END",
+        stored: false 
     );
             /*builder.HasOne(e => e.eventStatus)
                    .WithMany()
                    .HasForeignKey(e => e.eventStatusId)
                    .OnDelete(DeleteBehavior.Restrict);*/
 
-            builder.HasOne(e => e.eventSpeciality)
+            builder.HasOne(e => e.EventSpeciality)
                    .WithMany()
-                   .HasForeignKey(e => e.eventSpecialityId)
+                   .HasForeignKey(e => e.EventSpecialityId)
                    .OnDelete(DeleteBehavior.Restrict);
         }
     }

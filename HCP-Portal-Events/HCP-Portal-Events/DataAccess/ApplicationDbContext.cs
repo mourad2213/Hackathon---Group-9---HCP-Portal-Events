@@ -34,7 +34,8 @@ namespace MyApiProject.Data
         }
         private static void SeedData(ModelBuilder modelBuilder)
         {
-            var now = DateTime.Now;
+            // Use fixed reference dates (no DateTime.Now)
+            var baseDate = new DateTime(2025, 01, 01, 9, 0, 0);
 
             modelBuilder.Entity<Speciality>().HasData(
                 new Speciality { Id = 1, Field = "Cardiology" },
@@ -103,76 +104,77 @@ namespace MyApiProject.Data
                     Id = 1,
                     Title = "Cardiology CME 2023",
                     Description = "Continuing Medical Education for Cardiology",
-                    Date = now.AddDays(30),
-                    noOfAttendees = 120,
-                    imageUrl = "https://example.com/events/cardio-cme.jpg",
-                    eventTypeId = 1,
+                    Date = baseDate.AddDays(300), // 2025-01-31
+                    NoOfAttendees = 120,
+                    ImageUrl = "https://example.com/events/cardio-cme.jpg",
+                    EventTypeId = 1,
                     Status = "Upcoming",
-                    linkToevent = "https://zoom.us/cardio-cme-2023",
-                    eventSpecialityId = 1
+                    LinkToEvent = "https://zoom.us/cardio-cme-2023",
+                    EventSpecialityId = 1
                 },
                 new Event
                 {
                     Id = 2,
                     Title = "Pediatric CME Update",
                     Description = "Latest updates in pediatric medicine",
-                    Date = now.AddDays(-15),
-                    noOfAttendees = 80,
-                    imageUrl = "https://example.com/events/ped-cme.jpg",
-                    eventTypeId = 1,
-                    Status = "Pervious",
-                    linkToevent = "",
-                    eventSpecialityId = 3
+                    Date = baseDate.AddDays(-15), // 2024-12-17
+                    NoOfAttendees = 80,
+                    ImageUrl = "https://example.com/events/ped-cme.jpg",
+                    EventTypeId = 1,
+                    Status = "Previous",
+                    LinkToEvent = "",
+                    EventSpecialityId = 3
                 },
                 new Event
                 {
                     Id = 3,
                     Title = "Neurology Webinar Series",
                     Description = "Monthly webinars on neurology advancements",
-                    Date = now.AddDays(7),
-                    noOfAttendees = 75,
-                    imageUrl = "https://example.com/events/neuro-webinar.jpg",
-                    eventTypeId = 2,
+                    Date = baseDate.AddDays(7), // 2025-01-08
+                    NoOfAttendees = 75,
+                    ImageUrl = "https://example.com/events/neuro-webinar.jpg",
+                    EventTypeId = 2,
                     Status = "Upcoming",
-                    linkToevent = "https://zoom.us/neuro-webinar",
-                    eventSpecialityId = 2
+                    LinkToEvent = "https://zoom.us/neuro-webinar",
+                    EventSpecialityId = 2
                 },
                 new Event
                 {
                     Id = 4,
                     Title = "Oncology Webinar",
                     Description = "Recent advances in cancer treatment",
-                    Date = now.AddDays(45),
-                    noOfAttendees = 90,
-                    imageUrl = "https://example.com/events/onco-webinar.jpg",
-                    eventTypeId = 2,
+                    Date = baseDate.AddDays(45), // 2025-02-15
+                    NoOfAttendees = 90,
+                    ImageUrl = "https://example.com/events/onco-webinar.jpg",
+                    EventTypeId = 2,
                     Status = "Upcoming",
-                    linkToevent = "https://zoom.us/onco-webinar",
-                    eventSpecialityId = 4
+                    LinkToEvent = "https://zoom.us/onco-webinar",
+                    EventSpecialityId = 4
                 },
                 new Event
                 {
                     Id = 5,
                     Title = "GP Webinar: Annual Updates",
                     Description = "Important updates for general practitioners",
-                    Date = now.AddDays(-5),
-                    noOfAttendees = 150,
-                    imageUrl = "https://example.com/events/gp-webinar.jpg",
-                    eventTypeId = 2,
-                    Status = "Pervious",
-                    linkToevent = "",
-                    eventSpecialityId = 5
+                    Date = baseDate.AddDays(-5), // 2024-12-27
+                    NoOfAttendees = 150,
+                    ImageUrl = "https://example.com/events/gp-webinar.jpg",
+                    EventTypeId = 2,
+                    Status = "Previous",
+                    LinkToEvent = "",
+                    EventSpecialityId = 5
                 }
             );
-            var registrationDate = now.AddDays(-20);
+
+            var registrationBase = baseDate.AddDays(-20); // 2024-12-12
             modelBuilder.Entity<UserRegistrationToEvent>().HasData(
-                new { UserId = 1, EventId = 1, RegistrationDate = registrationDate.AddDays(1), IsCancelled = false },
-                new { UserId = 3, EventId = 2, RegistrationDate = registrationDate.AddDays(2), IsCancelled = false },
-                new { UserId = 1, EventId = 2, RegistrationDate = registrationDate.AddDays(3), IsCancelled = true },
-                new { UserId = 2, EventId = 3, RegistrationDate = registrationDate.AddDays(4), IsCancelled = false },
-                new { UserId = 4, EventId = 4, RegistrationDate = registrationDate.AddDays(5), IsCancelled = false },
-                new { UserId = 5, EventId = 5, RegistrationDate = registrationDate.AddDays(6), IsCancelled = false },
-                new { UserId = 3, EventId = 5, RegistrationDate = registrationDate.AddDays(7), IsCancelled = true }
+                new { UserId = 1, EventId = 1, RegistrationDate = registrationBase.AddDays(1), IsCancelled = false },
+                new { UserId = 3, EventId = 2, RegistrationDate = registrationBase.AddDays(2), IsCancelled = false },
+                new { UserId = 1, EventId = 2, RegistrationDate = registrationBase.AddDays(3), IsCancelled = true },
+                new { UserId = 2, EventId = 3, RegistrationDate = registrationBase.AddDays(4), IsCancelled = false },
+                new { UserId = 4, EventId = 4, RegistrationDate = registrationBase.AddDays(5), IsCancelled = false },
+                new { UserId = 5, EventId = 5, RegistrationDate = registrationBase.AddDays(6), IsCancelled = false },
+                new { UserId = 3, EventId = 5, RegistrationDate = registrationBase.AddDays(7), IsCancelled = true }
             );
 
             modelBuilder.Entity<ActivityType>().HasData(
@@ -186,9 +188,9 @@ namespace MyApiProject.Data
                     Id = 1,
                     Title = "Cardio Basics Module",
                     Description = "Introduction to cardiology principles",
-                    Date = now.AddDays(25),
+                    Date = baseDate.AddDays(25), // 2025-01-26
                     no = 1,
-                    ActivityTypeId = 1, 
+                    ActivityTypeId = 1,
                     EventId = 1
                 },
                 new Activity
@@ -196,9 +198,9 @@ namespace MyApiProject.Data
                     Id = 2,
                     Title = "Pediatric Care Activity",
                     Description = "Hands-on pediatric patient care",
-                    Date = now.AddDays(-10),
+                    Date = baseDate.AddDays(-10), // 2024-12-22
                     no = 2,
-                    ActivityTypeId = 2, 
+                    ActivityTypeId = 2,
                     EventId = 2
                 },
                 new Activity
@@ -206,7 +208,7 @@ namespace MyApiProject.Data
                     Id = 3,
                     Title = "Neuro Module 1",
                     Description = "Fundamentals of neurology",
-                    Date = now.AddDays(5),
+                    Date = baseDate.AddDays(5), // 2025-01-06
                     no = 1,
                     ActivityTypeId = 1,
                     EventId = 3
@@ -238,13 +240,14 @@ namespace MyApiProject.Data
             );
 
             modelBuilder.Entity<ActivitySpeaker>().HasData(
-                new { ActivityId = 1, UserId = 1 }, 
-                new { ActivityId = 1, UserId = 2 }, 
-                new { ActivityId = 2, UserId = 3 }, 
+                new { ActivityId = 1, UserId = 1 },
+                new { ActivityId = 1, UserId = 2 },
+                new { ActivityId = 2, UserId = 3 },
                 new { ActivityId = 3, UserId = 2 },
-                new { ActivityId = 3, UserId = 4 }  
+                new { ActivityId = 3, UserId = 4 }
             );
         }
+
 
 
     }

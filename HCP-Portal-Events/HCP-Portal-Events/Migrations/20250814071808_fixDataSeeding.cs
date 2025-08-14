@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HCP_Portal_Events.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class fixDataSeeding : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -74,14 +74,13 @@ namespace HCP_Portal_Events.Migrations
                     Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    noOfAttendees = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
-                    imageUrl = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    eventTypeId = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true, computedColumnSql: "CASE WHEN [Date] < GETDATE() THEN 'Previous' ELSE 'Upcoming' END", stored: true),
-                    linkToevent = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    eventSpecialityId = table.Column<int>(type: "int", nullable: false),
+                    NoOfAttendees = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
+                    ImageUrl = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
+                    EventTypeId = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true, computedColumnSql: "CASE WHEN [Date] < GETDATE() THEN 'Previous' ELSE 'Upcoming' END", stored: false),
+                    LinkToEvent = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EventSpecialityId = table.Column<int>(type: "int", nullable: false),
                     EventStatusId = table.Column<int>(type: "int", nullable: true),
-                    EventTypeId = table.Column<int>(type: "int", nullable: true),
                     SpecialityId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -96,11 +95,12 @@ namespace HCP_Portal_Events.Migrations
                         name: "FK_Events_EventTypes_EventTypeId",
                         column: x => x.EventTypeId,
                         principalTable: "EventTypes",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Events_EventTypes_eventTypeId",
-                        column: x => x.eventTypeId,
-                        principalTable: "EventTypes",
+                        name: "FK_Events_Specialities_EventSpecialityId",
+                        column: x => x.EventSpecialityId,
+                        principalTable: "Specialities",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -108,12 +108,6 @@ namespace HCP_Portal_Events.Migrations
                         column: x => x.SpecialityId,
                         principalTable: "Specialities",
                         principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Events_Specialities_eventSpecialityId",
-                        column: x => x.eventSpecialityId,
-                        principalTable: "Specialities",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -272,14 +266,14 @@ namespace HCP_Portal_Events.Migrations
 
             migrationBuilder.InsertData(
                 table: "Events",
-                columns: new[] { "Id", "Date", "Description", "EventStatusId", "EventTypeId", "SpecialityId", "Title", "eventSpecialityId", "eventTypeId", "imageUrl", "linkToevent", "noOfAttendees" },
+                columns: new[] { "Id", "Date", "Description", "EventSpecialityId", "EventStatusId", "EventTypeId", "ImageUrl", "LinkToEvent", "NoOfAttendees", "SpecialityId", "Title" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2025, 9, 13, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757), "Continuing Medical Education for Cardiology", null, null, null, "Cardiology CME 2023", 1, 1, "https://example.com/events/cardio-cme.jpg", "https://zoom.us/cardio-cme-2023", 120 },
-                    { 2, new DateTime(2025, 7, 30, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757), "Latest updates in pediatric medicine", null, null, null, "Pediatric CME Update", 3, 1, "https://example.com/events/ped-cme.jpg", "", 80 },
-                    { 3, new DateTime(2025, 8, 21, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757), "Monthly webinars on neurology advancements", null, null, null, "Neurology Webinar Series", 2, 2, "https://example.com/events/neuro-webinar.jpg", "https://zoom.us/neuro-webinar", 75 },
-                    { 4, new DateTime(2025, 9, 28, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757), "Recent advances in cancer treatment", null, null, null, "Oncology Webinar", 4, 2, "https://example.com/events/onco-webinar.jpg", "https://zoom.us/onco-webinar", 90 },
-                    { 5, new DateTime(2025, 8, 9, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757), "Important updates for general practitioners", null, null, null, "GP Webinar: Annual Updates", 5, 2, "https://example.com/events/gp-webinar.jpg", "", 150 }
+                    { 1, new DateTime(2025, 10, 28, 9, 0, 0, 0, DateTimeKind.Unspecified), "Continuing Medical Education for Cardiology", 1, null, 1, "https://example.com/events/cardio-cme.jpg", "https://zoom.us/cardio-cme-2023", 120, null, "Cardiology CME 2023" },
+                    { 2, new DateTime(2024, 12, 17, 9, 0, 0, 0, DateTimeKind.Unspecified), "Latest updates in pediatric medicine", 3, null, 1, "https://example.com/events/ped-cme.jpg", "", 80, null, "Pediatric CME Update" },
+                    { 3, new DateTime(2025, 1, 8, 9, 0, 0, 0, DateTimeKind.Unspecified), "Monthly webinars on neurology advancements", 2, null, 2, "https://example.com/events/neuro-webinar.jpg", "https://zoom.us/neuro-webinar", 75, null, "Neurology Webinar Series" },
+                    { 4, new DateTime(2025, 2, 15, 9, 0, 0, 0, DateTimeKind.Unspecified), "Recent advances in cancer treatment", 4, null, 2, "https://example.com/events/onco-webinar.jpg", "https://zoom.us/onco-webinar", 90, null, "Oncology Webinar" },
+                    { 5, new DateTime(2024, 12, 27, 9, 0, 0, 0, DateTimeKind.Unspecified), "Important updates for general practitioners", 5, null, 2, "https://example.com/events/gp-webinar.jpg", "", 150, null, "GP Webinar: Annual Updates" }
                 });
 
             migrationBuilder.InsertData(
@@ -299,9 +293,9 @@ namespace HCP_Portal_Events.Migrations
                 columns: new[] { "Id", "ActivityTypeId", "Date", "Description", "EventId", "Title", "no" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2025, 9, 8, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757), "Introduction to cardiology principles", 1, "Cardio Basics Module", 1 },
-                    { 2, 2, new DateTime(2025, 8, 4, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757), "Hands-on pediatric patient care", 2, "Pediatric Care Activity", 2 },
-                    { 3, 1, new DateTime(2025, 8, 19, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757), "Fundamentals of neurology", 3, "Neuro Module 1", 1 }
+                    { 1, 1, new DateTime(2025, 1, 26, 9, 0, 0, 0, DateTimeKind.Unspecified), "Introduction to cardiology principles", 1, "Cardio Basics Module", 1 },
+                    { 2, 2, new DateTime(2024, 12, 22, 9, 0, 0, 0, DateTimeKind.Unspecified), "Hands-on pediatric patient care", 2, "Pediatric Care Activity", 2 },
+                    { 3, 1, new DateTime(2025, 1, 6, 9, 0, 0, 0, DateTimeKind.Unspecified), "Fundamentals of neurology", 3, "Neuro Module 1", 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -309,13 +303,13 @@ namespace HCP_Portal_Events.Migrations
                 columns: new[] { "EventId", "UserId", "IsCancelled", "RegistrationDate" },
                 values: new object[,]
                 {
-                    { 1, 1, false, new DateTime(2025, 7, 26, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757) },
-                    { 2, 1, true, new DateTime(2025, 7, 28, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757) },
-                    { 2, 3, false, new DateTime(2025, 7, 27, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757) },
-                    { 3, 2, false, new DateTime(2025, 7, 29, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757) },
-                    { 4, 4, false, new DateTime(2025, 7, 30, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757) },
-                    { 5, 3, true, new DateTime(2025, 8, 1, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757) },
-                    { 5, 5, false, new DateTime(2025, 7, 31, 9, 2, 4, 953, DateTimeKind.Local).AddTicks(2757) }
+                    { 1, 1, false, new DateTime(2024, 12, 13, 9, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, 1, true, new DateTime(2024, 12, 15, 9, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, 3, false, new DateTime(2024, 12, 14, 9, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 3, 2, false, new DateTime(2024, 12, 16, 9, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 4, 4, false, new DateTime(2024, 12, 17, 9, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 5, 3, true, new DateTime(2024, 12, 19, 9, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 5, 5, false, new DateTime(2024, 12, 18, 9, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
@@ -361,19 +355,14 @@ namespace HCP_Portal_Events.Migrations
                 column: "ActivityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Events_eventSpecialityId",
+                name: "IX_Events_EventSpecialityId",
                 table: "Events",
-                column: "eventSpecialityId");
+                column: "EventSpecialityId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Events_EventStatusId",
                 table: "Events",
                 column: "EventStatusId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Events_eventTypeId",
-                table: "Events",
-                column: "eventTypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Events_EventTypeId",
