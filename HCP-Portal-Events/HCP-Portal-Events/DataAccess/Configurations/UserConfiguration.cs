@@ -23,11 +23,10 @@ namespace HCP_Portal_Events.DataAccess.Configurations
                 .HasMaxLength(30);
 
             builder.Property(x => x.SpecialityId)
-                .IsRequired()
-                .HasMaxLength(30);
+                .IsRequired();
 
             builder.HasOne(x => x.Speciality)
-                .WithMany()
+                .WithMany(x=>x.Users)
                 .HasForeignKey(x => x.SpecialityId)
                 .OnDelete(DeleteBehavior.Restrict);
             

@@ -17,7 +17,7 @@ namespace HCP_Portal_Events.DataAccess.Repositories
         }
 
 
-        public async Task<bool> UpdateUserAsync(int id, UserDTO.UserUpdateDto userUpdateDto)
+        public async Task<bool> UpdateUserAsync(int id, UserUpdateDto userUpdateDto)
         {
             var user = await _context.Users.FindAsync(id);
             user.UserName=userUpdateDto.UserName;

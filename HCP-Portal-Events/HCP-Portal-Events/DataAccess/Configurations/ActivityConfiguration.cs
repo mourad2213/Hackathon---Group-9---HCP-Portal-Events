@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HCP_Portal_Events.DataAccess.Configurations
 {
-    public class ActivityConfiguration: IEntityTypeConfiguration<Activity>
+    public class  ActivityConfiguration : IEntityTypeConfiguration<Activity>
     {
         public void Configure(EntityTypeBuilder<Activity> builder)
         {
-            builder.ToTable("Activites");
+            builder.ToTable("Activities");
 
             builder.HasKey(x => x.Id);
 
@@ -22,22 +22,21 @@ namespace HCP_Portal_Events.DataAccess.Configurations
             builder.Property(x => x.Date)
                 .IsRequired();
 
+            builder.Property(x => x.no)
+                .IsRequired();
+
             builder.Property(x => x.ActivityTypeId)
                 .IsRequired();
 
             builder.HasOne(e => e.ActivityType)
-                .WithMany()
+                .WithMany(e=> e.Activities)
                 .HasForeignKey(e => e.ActivityTypeId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(e => e.Event)
-                .WithMany()
+                .WithMany(e => e.EventActivities)
                 .HasForeignKey(e => e.EventId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-
         }
-
-
     }
 }
