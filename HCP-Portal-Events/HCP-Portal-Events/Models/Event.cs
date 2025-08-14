@@ -10,8 +10,8 @@ namespace HCP_Portal_Events.Models
         public DateTime Date { get; set; }
         public int noOfAttendees { get; set; }
         public string imageUrl { get; set; }
-        public int eventTypeId { get; set; }
-        public EventType eventType { get; set; }
+        public int EventTypeId { get; set; }
+        public EventType EventType { get; set; }
         public string Status { get; set; } 
         /* public int eventStatusId { get; set; }
          public EventStatus eventStatus { get; set; } */

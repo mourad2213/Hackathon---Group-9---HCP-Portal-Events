@@ -28,9 +28,9 @@ namespace HCP_Portal_Events.DataAccess.Configurations
             builder.Property(e => e.imageUrl)
                    .HasMaxLength(500);
 
-            builder.HasOne(e => e.eventType)
-                   .WithMany()
-                   .HasForeignKey(e => e.eventTypeId)
+            builder.HasOne(e => e.EventType)
+                   .WithMany(a =>a.Events)
+                   .HasForeignKey(e => e.EventTypeId)
                    .OnDelete(DeleteBehavior.Restrict);
 
             builder.Property(e => e.Status)
@@ -44,7 +44,7 @@ namespace HCP_Portal_Events.DataAccess.Configurations
                    .OnDelete(DeleteBehavior.Restrict);*/
 
             builder.HasOne(e => e.eventSpeciality)
-                   .WithMany()
+                   .WithMany(a => a.Events)
                    .HasForeignKey(e => e.eventSpecialityId)
                    .OnDelete(DeleteBehavior.Restrict);
         }

@@ -43,7 +43,7 @@ namespace HCP_Portal_Events.Controllers
 
         // PUT: api/Users/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(int id, UserDTO.UserUpdateDto userUpdateDto)
+        public async Task<IActionResult> UpdateUser(int id, UserUpdateDto userUpdateDto)
         {
             try { 
             var user = await _unitOfWork.UserRepositiory.GetUserByIdAsync(id);
