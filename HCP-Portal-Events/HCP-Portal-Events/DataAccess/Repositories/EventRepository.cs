@@ -26,6 +26,7 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Description = e.Description,
                     Date = e.Date,
                     imageUrl = e.ImageUrl,
+                    Status = e.Status,  
                     EventType = e.EventType.Type,
                     EventField = e.EventSpeciality.Field
                 })
@@ -43,6 +44,7 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Description = e.Description,
                     Date = e.Date,
                     imageUrl = e.ImageUrl,
+                    Status = e.Status,
                     EventType = e.EventType.Type,
                     EventField = e.EventSpeciality.Field
                 })
@@ -96,6 +98,7 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Description = e.Description,
                     Date = e.Date,
                     imageUrl = e.ImageUrl,
+                    Status = e.Status,
                     EventType = e.EventType.Type,
                     EventField = e.EventSpeciality.Field,
 
@@ -143,6 +146,7 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Description = e.Description,
                     Date = e.Date,
                     imageUrl = e.ImageUrl,
+                    Status = e.Status,
                     EventType = e.EventType.Type,
                     EventField = e.EventSpeciality.Field
                 })

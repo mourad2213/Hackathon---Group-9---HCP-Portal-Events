@@ -80,8 +80,7 @@ namespace HCP_Portal_Events.Migrations
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: true, computedColumnSql: "CASE WHEN [Date] < GETDATE() THEN 'Previous' ELSE 'Upcoming' END", stored: false),
                     LinkToEvent = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EventSpecialityId = table.Column<int>(type: "int", nullable: false),
-                    EventStatusId = table.Column<int>(type: "int", nullable: true),
-                    SpecialityId = table.Column<int>(type: "int", nullable: true)
+                    EventStatusId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -103,11 +102,6 @@ namespace HCP_Portal_Events.Migrations
                         principalTable: "Specialities",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Events_Specialities_SpecialityId",
-                        column: x => x.SpecialityId,
-                        principalTable: "Specialities",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -266,14 +260,14 @@ namespace HCP_Portal_Events.Migrations
 
             migrationBuilder.InsertData(
                 table: "Events",
-                columns: new[] { "Id", "Date", "Description", "EventSpecialityId", "EventStatusId", "EventTypeId", "ImageUrl", "LinkToEvent", "NoOfAttendees", "SpecialityId", "Title" },
+                columns: new[] { "Id", "Date", "Description", "EventSpecialityId", "EventStatusId", "EventTypeId", "ImageUrl", "LinkToEvent", "NoOfAttendees", "Title" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2025, 10, 28, 9, 0, 0, 0, DateTimeKind.Unspecified), "Continuing Medical Education for Cardiology", 1, null, 1, "https://example.com/events/cardio-cme.jpg", "https://zoom.us/cardio-cme-2023", 120, null, "Cardiology CME 2023" },
-                    { 2, new DateTime(2024, 12, 17, 9, 0, 0, 0, DateTimeKind.Unspecified), "Latest updates in pediatric medicine", 3, null, 1, "https://example.com/events/ped-cme.jpg", "", 80, null, "Pediatric CME Update" },
-                    { 3, new DateTime(2025, 1, 8, 9, 0, 0, 0, DateTimeKind.Unspecified), "Monthly webinars on neurology advancements", 2, null, 2, "https://example.com/events/neuro-webinar.jpg", "https://zoom.us/neuro-webinar", 75, null, "Neurology Webinar Series" },
-                    { 4, new DateTime(2025, 2, 15, 9, 0, 0, 0, DateTimeKind.Unspecified), "Recent advances in cancer treatment", 4, null, 2, "https://example.com/events/onco-webinar.jpg", "https://zoom.us/onco-webinar", 90, null, "Oncology Webinar" },
-                    { 5, new DateTime(2024, 12, 27, 9, 0, 0, 0, DateTimeKind.Unspecified), "Important updates for general practitioners", 5, null, 2, "https://example.com/events/gp-webinar.jpg", "", 150, null, "GP Webinar: Annual Updates" }
+                    { 1, new DateTime(2025, 10, 28, 9, 0, 0, 0, DateTimeKind.Unspecified), "Continuing Medical Education for Cardiology", 1, null, 1, "https://example.com/events/cardio-cme.jpg", "https://zoom.us/cardio-cme-2023", 120, "Cardiology CME 2023" },
+                    { 2, new DateTime(2024, 12, 17, 9, 0, 0, 0, DateTimeKind.Unspecified), "Latest updates in pediatric medicine", 3, null, 1, "https://example.com/events/ped-cme.jpg", "", 80, "Pediatric CME Update" },
+                    { 3, new DateTime(2025, 1, 8, 9, 0, 0, 0, DateTimeKind.Unspecified), "Monthly webinars on neurology advancements", 2, null, 2, "https://example.com/events/neuro-webinar.jpg", "https://zoom.us/neuro-webinar", 75, "Neurology Webinar Series" },
+                    { 4, new DateTime(2025, 2, 15, 9, 0, 0, 0, DateTimeKind.Unspecified), "Recent advances in cancer treatment", 4, null, 2, "https://example.com/events/onco-webinar.jpg", "https://zoom.us/onco-webinar", 90, "Oncology Webinar" },
+                    { 5, new DateTime(2024, 12, 27, 9, 0, 0, 0, DateTimeKind.Unspecified), "Important updates for general practitioners", 5, null, 2, "https://example.com/events/gp-webinar.jpg", "", 150, "GP Webinar: Annual Updates" }
                 });
 
             migrationBuilder.InsertData(
@@ -368,11 +362,6 @@ namespace HCP_Portal_Events.Migrations
                 name: "IX_Events_EventTypeId",
                 table: "Events",
                 column: "EventTypeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Events_SpecialityId",
-                table: "Events",
-                column: "SpecialityId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserRegistrationToEvents_UserId",
