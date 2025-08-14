@@ -115,12 +115,22 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                                     FileName = att.FileName,
                                     FilePath = att.FilePath
                                 })
+                                .ToList(),
+                            Speakers = a.ActivitySpeakers
+                                .Select(s => new SpeakerDTO
+                                {
+                                    Id = s.User.Id,
+                                    UserName = s.User.UserName,
+                                    ProfilePicture = s.User.ProfilePicture,
+                                    Speciality = s.User.Speciality.Field
+                                })
                                 .ToList()
                         })
                         .ToList()
                 })
                 .FirstOrDefaultAsync();
         }
+
 
         public async Task<EventReadDTO> GetEventByIdAsync(int id)
         {

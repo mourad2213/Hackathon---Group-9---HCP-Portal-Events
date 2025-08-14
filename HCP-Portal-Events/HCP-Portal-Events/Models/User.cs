@@ -13,5 +13,7 @@ namespace HCP_Portal_Events.Models
         public int SpecialityId { get; set; }
         public Speciality Speciality { get; set; }
         public ICollection<UserRegistrationToEvent> UserEvents { get; set; }
+
+        public ICollection<ActivitySpeaker> SpeakerActivities { get; set; } = new List<ActivitySpeaker>();
     }
 }
