@@ -82,7 +82,7 @@ namespace HCP_Portal_Events.Controllers
                     Details = ex.Message
                 });
             }
-        }
+        }s
 
         // GET: api/userregistration/isregistered
         [HttpGet("isregistered")]
