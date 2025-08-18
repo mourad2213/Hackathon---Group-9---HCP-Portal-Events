@@ -43,29 +43,48 @@ namespace HCP_Portal_Events.Controllers
 
         // PUT: api/Users/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(int id, UserUpdateDto userUpdateDto)
+        public async Task<IActionResult> UpdateUser(int id, [FromForm] UserUpdateDto userUpdateDto)
         {
-            try { 
-            var user = await _unitOfWork.UserRepositiory.GetUserByIdAsync(id);
-            if (user == null)
+            try
             {
-                return NotFound(new { message = "User Not Found" });
-            }
+                var user = await _unitOfWork.UserRepositiory.GetUserByIdAsync(id);
+                if (user == null)
+                {
+                    return NotFound(new { message = "User Not Found" });
+                }
 
-            await _unitOfWork.UserRepositiory.UpdateUserAsync(id, userUpdateDto);
-            await _unitOfWork.CompleteAsync();
+                if (userUpdateDto.ProfilePicture != null)
+                {
+                    var fileName = $"{Guid.NewGuid()}_{userUpdateDto.ProfilePicture.FileName}";
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\users", fileName);
 
-            return NoContent();
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await userUpdateDto.ProfilePicture.CopyToAsync(stream);
+                    }
+
+                    userUpdateDto.ProfilePicturePath = $"\\images\\users\\{fileName}";
+                }
+                else
+                {
+                    userUpdateDto.ProfilePicturePath = user.ProfilePicture;
+                }
+
+                await _unitOfWork.UserRepositiory.UpdateUserAsync(id, userUpdateDto);
+                await _unitOfWork.CompleteAsync();
+
+                return NoContent();
             }
             catch (Exception ex)
             {
                 return StatusCode(500, new
                 {
-                    Message = "An unexpected error occurred while updating The user",
+                    Message = "An unexpected error occurred while updating the user",
                     Details = ex.Message
                 });
             }
         }
+
 
         // GET: api/Users/5/previous-events
         [HttpGet("{userId}/previous-events")]
