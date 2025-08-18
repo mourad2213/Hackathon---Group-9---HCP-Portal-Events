@@ -56,7 +56,7 @@ namespace HCP_Portal_Events.Tests.Controllers
                 UserName = "NewName",
                 Email = "new@example.com",
                 PhoneNumber = 123,
-                ProfilePicture = "pic.jpg"
+                ProfilePicturePath = "pic.jpg"
             };
 
             _mockUserRepository.Setup(r => r.GetUserByIdAsync(1))

@@ -23,7 +23,7 @@ namespace HCP_Portal_Events.DataAccess.Repositories
             user.UserName=userUpdateDto.UserName;
             user.Email = userUpdateDto.Email;
             user.PhoneNumber = userUpdateDto.PhoneNumber;
-            user.ProfilePicture = userUpdateDto.ProfilePicture;
+            user.ProfilePicture = userUpdateDto.ProfilePicturePath;
             return true;
 
         }
