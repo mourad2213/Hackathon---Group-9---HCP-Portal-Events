@@ -6,11 +6,11 @@ namespace HCP_Portal_Events.DataAccess.Interfaces
 {
     public interface IUserRepositiories
     {
-        Task<User> GetUserByIdAsync(int id);
+        Task<UserReadDTO> GetUserByIdAsync(int id);
         Task<bool> UpdateUserAsync(int id, UserUpdateDto userUpdateDto);
 
-        Task<IEnumerable<Event>> GetUserPerviousEvents(int userId);
-        Task<IEnumerable<Event>> GetUserUpcomingEvents(int userId);
-        Task<IEnumerable<Event>> GetUserSpecialityEvents(User user);
+        Task<IEnumerable<EventReadDTO>> GetUserPerviousEvents(int userId);
+        Task<IEnumerable<EventReadDTO>> GetUserUpcomingEvents(int userId);
+        Task<IEnumerable<EventReadDTO>> GetUserSpecialityEvents(UserReadDTO user);
     }
 }

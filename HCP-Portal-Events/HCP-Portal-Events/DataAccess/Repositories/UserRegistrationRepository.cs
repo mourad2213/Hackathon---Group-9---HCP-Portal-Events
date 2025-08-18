@@ -16,13 +16,24 @@ namespace HCP_Portal_Events.DataAccess.Repositories
 
         public async Task<bool> BookEventAsync(int userId, int eventId)
         {
-            var exists = await _context.UserRegistrationToEvents
-                .AnyAsync(ue => ue.UserId == userId && ue.EventId == eventId && !ue.IsCancelled);
+            var existingRegistration = await _context.UserRegistrationToEvents
+                .FirstOrDefaultAsync(ue => ue.UserId == userId && ue.EventId == eventId);
 
-            if (exists)
+            if (existingRegistration != null)
+            {
+                
+                if (existingRegistration.IsCancelled)
+                {
+                    existingRegistration.IsCancelled = false;
+                    existingRegistration.RegistrationDate = DateTime.UtcNow; 
+                    await _context.SaveChangesAsync();
+                    return true;
+                }
+                
                 return false;
+            }
 
-            var registration = new UserRegistrationToEvent
+            var newRegistration = new UserRegistrationToEvent
             {
                 UserId = userId,
                 EventId = eventId,
@@ -30,10 +41,10 @@ namespace HCP_Portal_Events.DataAccess.Repositories
                 IsCancelled = false
             };
 
-            _context.UserRegistrationToEvents.Add(registration);
+            _context.UserRegistrationToEvents.Add(newRegistration);
+            await _context.SaveChangesAsync();
             return true;
         }
-
         public async Task<bool> UnbookEventAsync(int userId, int eventId)
         {
             var registration = await _context.UserRegistrationToEvents
