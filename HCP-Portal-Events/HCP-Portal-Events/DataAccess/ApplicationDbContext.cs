@@ -58,7 +58,7 @@ namespace MyApiProject.Data
                     UserName = "dr_smith",
                     Email = "dr.smith@example.com",
                     PhoneNumber = 1234567890,
-                    ProfilePicture = "https://example.com/profiles/smith.jpg",
+                    ProfilePicture = "\\images\\users\\download.webp",
                     SpecialityId = 1
                 },
                 new User
@@ -67,7 +67,7 @@ namespace MyApiProject.Data
                     UserName = "dr_jones",
                     Email = "dr.jones@example.com",
                     PhoneNumber = 2345678901,
-                    ProfilePicture = "https://example.com/profiles/jones.jpg",
+                    ProfilePicture = "\\images\\users\\OIP (1).jpeg",
                     SpecialityId = 2
                 },
                 new User
@@ -76,7 +76,7 @@ namespace MyApiProject.Data
                     UserName = "dr_williams",
                     Email = "dr.williams@example.com",
                     PhoneNumber = 3456789012,
-                    ProfilePicture = "https://example.com/profiles/williams.jpg",
+                    ProfilePicture = "\\images\\users\\OIP (1).webp",
                     SpecialityId = 3
                 },
                 new User
@@ -85,7 +85,7 @@ namespace MyApiProject.Data
                     UserName = "dr_brown",
                     Email = "dr.brown@example.com",
                     PhoneNumber = 4567890123,
-                    ProfilePicture = "https://example.com/profiles/brown.jpg",
+                    ProfilePicture = "\\images\\users\\OIP.jpeg",
                     SpecialityId = 4
                 },
                 new User
@@ -94,7 +94,7 @@ namespace MyApiProject.Data
                     UserName = "dr_taylor",
                     Email = "dr.taylor@example.com",
                     PhoneNumber = 5678901234,
-                    ProfilePicture = "https://example.com/profiles/taylor.jpg",
+                    ProfilePicture = "\\images\\users\\OIP.webp",
                     SpecialityId = 5
                 }
             );
@@ -107,7 +107,7 @@ namespace MyApiProject.Data
                     Description = "Continuing Medical Education for Cardiology",
                     Date = baseDate.AddDays(300), // 2025-01-31
                     NoOfAttendees = 120,
-                    ImageUrl = "https://example.com/events/cardio-cme.jpg",
+                    ImageUrl = "\\images\\events\\OIP (1).jpeg",
                     EventTypeId = 1,
                     Status = "Upcoming",
                     LinkToEvent = "https://zoom.us/cardio-cme-2023",
@@ -120,7 +120,7 @@ namespace MyApiProject.Data
                     Description = "Latest updates in pediatric medicine",
                     Date = baseDate.AddDays(-15), // 2024-12-17
                     NoOfAttendees = 80,
-                    ImageUrl = "https://example.com/events/ped-cme.jpg",
+                    ImageUrl = "\\images\\events\\OIP (1).webp",
                     EventTypeId = 1,
                     Status = "Previous",
                     LinkToEvent = "",
@@ -133,7 +133,7 @@ namespace MyApiProject.Data
                     Description = "Monthly webinars on neurology advancements",
                     Date = baseDate.AddDays(7), // 2025-01-08
                     NoOfAttendees = 75,
-                    ImageUrl = "https://example.com/events/neuro-webinar.jpg",
+                    ImageUrl = "\\images\\events\\OIP (2).webp",
                     EventTypeId = 2,
                     Status = "Upcoming",
                     LinkToEvent = "https://zoom.us/neuro-webinar",
@@ -146,7 +146,7 @@ namespace MyApiProject.Data
                     Description = "Recent advances in cancer treatment",
                     Date = baseDate.AddDays(45), // 2025-02-15
                     NoOfAttendees = 90,
-                    ImageUrl = "https://example.com/events/onco-webinar.jpg",
+                    ImageUrl = "\\images\\events\\OIP.jpeg",
                     EventTypeId = 2,
                     Status = "Upcoming",
                     LinkToEvent = "https://zoom.us/onco-webinar",
@@ -159,7 +159,7 @@ namespace MyApiProject.Data
                     Description = "Important updates for general practitioners",
                     Date = baseDate.AddDays(-5), // 2024-12-27
                     NoOfAttendees = 150,
-                    ImageUrl = "https://example.com/events/gp-webinar.jpg",
+                    ImageUrl = "\\images\\events\\OIP.webp",
                     EventTypeId = 2,
                     Status = "Previous",
                     LinkToEvent = "",

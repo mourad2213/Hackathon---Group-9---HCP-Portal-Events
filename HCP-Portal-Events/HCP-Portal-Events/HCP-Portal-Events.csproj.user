@@ -2,5 +2,6 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ActiveDebugProfile>https</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>D:\EvaHackathon2025\Hackathon---Group-9---HCP-Portal-Events\HCP-Portal-Events\HCP-Portal-Events\Properties\PublishProfiles\site34172-WebDeploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

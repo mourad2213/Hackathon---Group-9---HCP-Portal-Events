@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36310.24 d17.14
+VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCP-Portal-Events", "HCP-Portal-Events\HCP-Portal-Events.csproj", "{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCP-Portal-Events.Tests", "HCP-Portal-Events.Tests\HCP-Portal-Events.Tests.csproj", "{EFBB78D0-82D6-4AA6-8CBD-C2C0C4D67E16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE9EEB55-C375-4EB6-8F7C-EE92EF617422}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFBB78D0-82D6-4AA6-8CBD-C2C0C4D67E16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFBB78D0-82D6-4AA6-8CBD-C2C0C4D67E16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFBB78D0-82D6-4AA6-8CBD-C2C0C4D67E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFBB78D0-82D6-4AA6-8CBD-C2C0C4D67E16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
