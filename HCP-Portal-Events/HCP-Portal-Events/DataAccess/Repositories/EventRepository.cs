@@ -24,10 +24,10 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Id = e.Id,
                     Title = e.Title,
                     Description = e.Description,
-                    Date = e.Date,
+                    EventCreatedDate = e.EventCreatedDate,
                     imageUrl = e.ImageUrl,
                     Status = e.Status,  
-                    EventType = e.EventType.Type,
+                    EventType = e.EventType.EventTypeName,
                     EventField = e.EventSpeciality.Field
                 })
                 .ToListAsync();
@@ -42,10 +42,10 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Id = e.Id,
                     Title = e.Title,
                     Description = e.Description,
-                    Date = e.Date,
+                    EventCreatedDate = e.EventCreatedDate,
                     imageUrl = e.ImageUrl,
                     Status = e.Status,
-                    EventType = e.EventType.Type,
+                    EventType = e.EventType.EventTypeName,
                     EventField = e.EventSpeciality.Field
                 })
                 .ToListAsync();
@@ -54,16 +54,16 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
         public async Task<IEnumerable<EventReadDTO>> GetAllEventsByTypeAsync(string type)
         {
             return await _context.Events
-                .Where(e => e.EventType.Type == type)
+                .Where(e => e.EventType.EventTypeName == type)
                 .Select(e => new EventReadDTO
                 {
                     Id = e.Id,
                     Title = e.Title,
                     Description = e.Description,
-                    Date = e.Date,
+                    EventCreatedDate = e.EventCreatedDate,
                     Status = e.Status,
                     imageUrl = e.ImageUrl,
-                    EventType = e.EventType.Type,
+                    EventType = e.EventType.EventTypeName,
                     EventField = e.EventSpeciality.Field
                 })
                 .ToListAsync();
@@ -78,10 +78,10 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Id = e.Id,
                     Title = e.Title,
                     Description = e.Description,
-                    Date = e.Date,
+                    EventCreatedDate = e.EventCreatedDate,
                     Status = e.Status,
                     imageUrl = e.ImageUrl,
-                    EventType = e.EventType.Type,
+                    EventType = e.EventType.EventTypeName,
                     EventField = e.EventSpeciality.Field
                 })
                 .ToListAsync();
@@ -96,10 +96,10 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Id = e.Id,
                     Title = e.Title,
                     Description = e.Description,
-                    Date = e.Date,
+                    EventCreatedDate = e.EventCreatedDate,
                     imageUrl = e.ImageUrl,
                     Status = e.Status,
-                    EventType = e.EventType.Type,
+                    EventType = e.EventType.EventTypeName,
                     EventField = e.EventSpeciality.Field,
 
                     EventActivities = e.EventActivities
@@ -144,10 +144,10 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Id = e.Id,
                     Title = e.Title,
                     Description = e.Description,
-                    Date = e.Date,
+                    EventCreatedDate = e.EventCreatedDate,
                     imageUrl = e.ImageUrl,
                     Status = e.Status,
-                    EventType = e.EventType.Type,
+                    EventType = e.EventType.EventTypeName,
                     EventField = e.EventSpeciality.Field
                 })
                 .FirstOrDefaultAsync();
@@ -167,10 +167,10 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     Id = e.Id,
                     Title = e.Title,
                     Description = e.Description,
-                    Date = e.Date,
+                    EventCreatedDate = e.EventCreatedDate,
                     Status = e.Status,
                     imageUrl = e.ImageUrl,
-                    EventType = e.EventType.Type,
+                    EventType = e.EventType.EventTypeName,
                     EventField = e.EventSpeciality.Field
                 })
                 .ToListAsync();

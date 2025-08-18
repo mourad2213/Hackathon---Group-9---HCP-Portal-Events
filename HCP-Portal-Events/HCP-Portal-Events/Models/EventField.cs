@@ -5,7 +5,7 @@ namespace HCP_Portal_Events.Models
     public class EventField
     {
         public int Id { get; set; }
-        public string Field { get; set; } 
+        public string EventFieldName { get; set; } 
 
         public ICollection<Event> Events { get; set; }
     }

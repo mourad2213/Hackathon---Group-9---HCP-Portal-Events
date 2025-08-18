@@ -54,16 +54,16 @@ namespace HCP_Portal_Events.DataAccess.Repositories
                     .ThenInclude(e => e.EventType) // Include EventType for mapping
                 .Include(ur => ur.Event)
                     .ThenInclude(e => e.EventSpeciality) // Include EventSpeciality for mapping
-                .Where(ur => ur.Event.Date < DateTime.Now)
+                .Where(ur => ur.Event.EventCreatedDate < DateTime.Now)
                 .Select(ur => new EventReadDTO
                 {
                     Id = ur.Event.Id,
                     Title = ur.Event.Title,
                     Description = ur.Event.Description,
-                    Date = ur.Event.Date,
+                    EventCreatedDate = ur.Event.EventCreatedDate,
                     Status = ur.Event.Status,
                     imageUrl = ur.Event.ImageUrl,
-                    EventType = ur.Event.EventType.Type, // Map EventType name
+                    EventType = ur.Event.EventType.EventTypeName, // Map EventType name
                     EventField = ur.Event.EventSpeciality.Field // Map Speciality name
                 })
                 .ToListAsync();
@@ -76,16 +76,16 @@ namespace HCP_Portal_Events.DataAccess.Repositories
                     .ThenInclude(e => e.EventType)
                 .Include(ur => ur.Event)
                     .ThenInclude(e => e.EventSpeciality)
-                .Where(ur => ur.Event.Date > DateTime.Now)
+                .Where(ur => ur.Event.EventCreatedDate > DateTime.Now)
                 .Select(ur => new EventReadDTO
                 {
                     Id = ur.Event.Id,
                     Title = ur.Event.Title,
                     Description = ur.Event.Description,
-                    Date = ur.Event.Date,
+                    EventCreatedDate = ur.Event.EventCreatedDate,
                     Status = ur.Event.Status,
                     imageUrl = ur.Event.ImageUrl,
-                    EventType = ur.Event.EventType.Type,
+                    EventType = ur.Event.EventType.EventTypeName,
                     EventField = ur.Event.EventSpeciality.Field
                 })
                 .ToListAsync();
@@ -96,16 +96,16 @@ namespace HCP_Portal_Events.DataAccess.Repositories
                 .Include(e => e.EventType)
                 .Include(e => e.EventSpeciality)
                 .Where(e => e.EventSpeciality.Field == user.Speciality)
-                .OrderBy(e => e.Date)
+                .OrderBy(e => e.EventCreatedDate)
                 .Select(e => new EventReadDTO
                 {
                     Id = e.Id,
                     Title = e.Title,
                     Description = e.Description,
-                    Date = e.Date,
+                    EventCreatedDate = e.EventCreatedDate,
                     Status = e.Status,
                     imageUrl = e.ImageUrl,
-                    EventType = e.EventType.Type,
+                    EventType = e.EventType.EventTypeName,
                     EventField = e.EventSpeciality.Field
                 })
                 .ToListAsync();

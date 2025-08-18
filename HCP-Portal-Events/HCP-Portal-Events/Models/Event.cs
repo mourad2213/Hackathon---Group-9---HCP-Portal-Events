@@ -7,7 +7,7 @@ namespace HCP_Portal_Events.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime EventCreatedDate { get; set; }
         public int NoOfAttendees { get; set; }
         public string ImageUrl { get; set; }
         public int EventTypeId { get; set; }

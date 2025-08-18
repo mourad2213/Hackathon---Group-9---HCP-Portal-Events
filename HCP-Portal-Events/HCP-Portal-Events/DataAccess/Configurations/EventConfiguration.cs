@@ -19,7 +19,7 @@ namespace HCP_Portal_Events.DataAccess.Configurations
             builder.Property(e => e.Description)
                    .IsRequired();
 
-            builder.Property(e => e.Date)
+            builder.Property(e => e.EventCreatedDate)
                    .IsRequired();
 
             builder.Property(e => e.NoOfAttendees)
@@ -39,11 +39,7 @@ namespace HCP_Portal_Events.DataAccess.Configurations
         "CASE WHEN [Date] < GETDATE() THEN 'Previous' ELSE 'Upcoming' END",
         stored: false 
     );
-            /*builder.HasOne(e => e.eventStatus)
-                   .WithMany()
-                   .HasForeignKey(e => e.eventStatusId)
-                   .OnDelete(DeleteBehavior.Restrict);*/
-
+            
             builder.HasOne(e => e.EventSpeciality)
                    .WithMany(a => a.Events)
                    .HasForeignKey(e => e.EventSpecialityId)

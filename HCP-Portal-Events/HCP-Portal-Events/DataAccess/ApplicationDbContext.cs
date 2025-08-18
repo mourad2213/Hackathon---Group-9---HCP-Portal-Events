@@ -47,8 +47,8 @@ namespace MyApiProject.Data
             );
 
             modelBuilder.Entity<EventType>().HasData(
-                new EventType { Id = 1, Type = "CME" },
-                new EventType { Id = 2, Type = "Webinar" }
+                new EventType { Id = 1, EventTypeName = "CME" },
+                new EventType { Id = 2, EventTypeName = "Webinar" }
             );
 
             modelBuilder.Entity<User>().HasData(
@@ -105,7 +105,7 @@ namespace MyApiProject.Data
                     Id = 1,
                     Title = "Cardiology CME 2023",
                     Description = "Continuing Medical Education for Cardiology",
-                    Date = baseDate.AddDays(300), // 2025-01-31
+                    EventCreatedDate = baseDate.AddDays(300), // 2025-01-31
                     NoOfAttendees = 120,
                     ImageUrl = "\\images\\events\\OIP (1).jpeg",
                     EventTypeId = 1,
@@ -118,7 +118,7 @@ namespace MyApiProject.Data
                     Id = 2,
                     Title = "Pediatric CME Update",
                     Description = "Latest updates in pediatric medicine",
-                    Date = baseDate.AddDays(-15), // 2024-12-17
+                    EventCreatedDate = baseDate.AddDays(-15), // 2024-12-17
                     NoOfAttendees = 80,
                     ImageUrl = "\\images\\events\\OIP (1).webp",
                     EventTypeId = 1,
@@ -131,7 +131,7 @@ namespace MyApiProject.Data
                     Id = 3,
                     Title = "Neurology Webinar Series",
                     Description = "Monthly webinars on neurology advancements",
-                    Date = baseDate.AddDays(7), // 2025-01-08
+                    EventCreatedDate = baseDate.AddDays(7), // 2025-01-08
                     NoOfAttendees = 75,
                     ImageUrl = "\\images\\events\\OIP (2).webp",
                     EventTypeId = 2,
@@ -144,7 +144,7 @@ namespace MyApiProject.Data
                     Id = 4,
                     Title = "Oncology Webinar",
                     Description = "Recent advances in cancer treatment",
-                    Date = baseDate.AddDays(45), // 2025-02-15
+                    EventCreatedDate = baseDate.AddDays(45), // 2025-02-15
                     NoOfAttendees = 90,
                     ImageUrl = "\\images\\events\\OIP.jpeg",
                     EventTypeId = 2,
@@ -157,7 +157,7 @@ namespace MyApiProject.Data
                     Id = 5,
                     Title = "GP Webinar: Annual Updates",
                     Description = "Important updates for general practitioners",
-                    Date = baseDate.AddDays(-5), // 2024-12-27
+                    EventCreatedDate = baseDate.AddDays(-5), // 2024-12-27
                     NoOfAttendees = 150,
                     ImageUrl = "\\images\\events\\OIP.webp",
                     EventTypeId = 2,
