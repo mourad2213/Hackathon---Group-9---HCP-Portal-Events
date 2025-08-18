@@ -23,13 +23,13 @@ builder.Services.AddDbContext<ApplicationDbContext>((provider, options) =>
 {
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection"),
-        options => 
+        options =>
         {
             options.EnableRetryOnFailure(
                 maxRetryCount: 3,
                 maxRetryDelay: TimeSpan.FromSeconds(10),
                 errorNumbersToAdd: null);
-            
+
         });
 });
 builder.Services.AddScoped<IUserRegistrationRepository, UserRegistrationRepository>();
@@ -40,11 +40,9 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
