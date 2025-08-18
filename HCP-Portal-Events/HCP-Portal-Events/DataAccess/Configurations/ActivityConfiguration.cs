@@ -22,7 +22,7 @@ namespace HCP_Portal_Events.DataAccess.Configurations
             builder.Property(x => x.Date)
                 .IsRequired();
 
-            builder.Property(x => x.no)
+            builder.Property(x => x.DayorModule_No)
                 .IsRequired();
 
             builder.Property(x => x.ActivityTypeId)
