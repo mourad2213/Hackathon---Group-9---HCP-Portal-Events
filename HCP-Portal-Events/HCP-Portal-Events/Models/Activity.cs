@@ -6,7 +6,7 @@
         public string Title { get; set; }//required
         public string Description { get; set; }
         public DateTime Date { get; set; }//required
-        public int no {  get; set; }//required
+        public int DayorModule_No {  get; set; }//required
         public int ActivityTypeId { get; set; }
         public ActivityType ActivityType { get; set; }//required
         public int EventId { get; set; }//required

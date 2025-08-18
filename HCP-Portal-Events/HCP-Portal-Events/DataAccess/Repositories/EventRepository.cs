@@ -1,4 +1,5 @@
 using HCP_Portal_Events.DataAccess.Interfaces;
+using HCP_Portal_Events.Models;
 using HCP_Portal_Events.Models.DTOs;
 using Microsoft.EntityFrameworkCore;
 using MyApiProject.Data;
@@ -18,7 +19,7 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
         public async Task<IEnumerable<EventReadDTO>> GetAllPreviousEventsAsync()
         {
             return await _context.Events
-                .Where(e => e.Status == "Previous")
+                .Where(e => e.Status == EventStatuses.Previous)
                 .Select(e => new EventReadDTO
                 {
                     Id = e.Id,
@@ -36,7 +37,7 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
         public async Task<IEnumerable<EventReadDTO>> GetAllUpcomingEventsAsync()
         {
             return await _context.Events
-                .Where(e => e.Status == "Upcoming")
+                .Where(e => e.Status == EventStatuses.Upcoming)
                 .Select(e => new EventReadDTO
                 {
                     Id = e.Id,
@@ -53,6 +54,8 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
 
         public async Task<IEnumerable<EventReadDTO>> GetAllEventsByTypeAsync(string type)
         {
+            var normalizedType = type.Trim().ToLower();
+
             return await _context.Events
                 .Where(e => e.EventType.EventTypeName == type)
                 .Select(e => new EventReadDTO
@@ -69,10 +72,13 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                 .ToListAsync();
         }
 
+
         public async Task<IEnumerable<EventReadDTO>> GetAllEventsByStatusAsync(string status)
         {
+            var normalizedStatus = status.Trim().ToLower();
+
             return await _context.Events
-                .Where(e => e.Status == status)
+                .Where(e => e.Status.Trim().ToLower() == normalizedStatus)
                 .Select(e => new EventReadDTO
                 {
                     Id = e.Id,
@@ -86,6 +92,7 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                 })
                 .ToListAsync();
         }
+
 
         public async Task<EventReadActivitesandAttachmentsDTO> GetEventWithActivitiesAndAttachments(int id)
         {
@@ -103,13 +110,13 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                     EventField = e.EventSpeciality.Field,
 
                     EventActivities = e.EventActivities
-                        .OrderBy(a => a.no)
+                        .OrderBy(a => a.DayorModule_No)
                         .ThenBy(a => a.Date)
                         .Select(a => new ActivityWithAttachmentsDTO
                         {
                             Id = a.Id,
                             Title = a.Title,
-                            Date = a.Date,
+                            ActivityStartTime = a.Date,
                             Description = a.Description,
                             Attachments = a.Attachments
                                 .Select(att => new AttachmentDTO
@@ -125,7 +132,7 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                                     Id = s.User.Id,
                                     UserName = s.User.UserName,
                                     ProfilePicture = s.User.ProfilePicture,
-                                    Speciality = s.User.Speciality.Field
+                                    SpecialityName = s.User.Speciality.Field
                                 })
                                 .ToList()
                         })
@@ -157,11 +164,9 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
             if (string.IsNullOrWhiteSpace(name))
                 return Enumerable.Empty<EventReadDTO>();
 
-            string lowerName = name.ToLower();
-
             return await _context.Events
-                .Where(e => e.Title.ToLower().Contains(lowerName) ||
-                            e.Description.ToLower().Contains(lowerName))
+                .Where(e => e.Title.ToLower().Contains(name.ToLower()) ||
+                            e.Description.ToLower().Contains(name.ToLower()))
                 .Select(e => new EventReadDTO
                 {
                     Id = e.Id,

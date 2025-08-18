@@ -179,8 +179,8 @@ namespace MyApiProject.Data
             );
 
             modelBuilder.Entity<ActivityType>().HasData(
-                new ActivityType { Id = 1, Type = "Module" },
-                new ActivityType { Id = 2, Type = "Activity" }
+                new ActivityType { Id = 1, ActivityTypeName = "Module" },
+                new ActivityType { Id = 2, ActivityTypeName = "Activity" }
             );
 
             modelBuilder.Entity<Activity>().HasData(
@@ -190,7 +190,7 @@ namespace MyApiProject.Data
                     Title = "Cardio Basics Module",
                     Description = "Introduction to cardiology principles",
                     Date = baseDate.AddDays(25), // 2025-01-26
-                    no = 1,
+                    DayorModule_No = 1,
                     ActivityTypeId = 1,
                     EventId = 1
                 },
@@ -200,7 +200,7 @@ namespace MyApiProject.Data
                     Title = "Pediatric Care Activity",
                     Description = "Hands-on pediatric patient care",
                     Date = baseDate.AddDays(-10), // 2024-12-22
-                    no = 2,
+                    DayorModule_No = 2,
                     ActivityTypeId = 2,
                     EventId = 2
                 },
@@ -210,7 +210,7 @@ namespace MyApiProject.Data
                     Title = "Neuro Module 1",
                     Description = "Fundamentals of neurology",
                     Date = baseDate.AddDays(5), // 2025-01-06
-                    no = 1,
+                    DayorModule_No = 1,
                     ActivityTypeId = 1,
                     EventId = 3
                 }
