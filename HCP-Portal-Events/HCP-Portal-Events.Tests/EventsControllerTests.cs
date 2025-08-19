@@ -251,7 +251,7 @@ namespace HCP_Portal_Events.Tests
                     {
                         Id = 1,
                         Title = "Opening Session",
-                        Date = DateTime.Now,
+                        ActivityStartTime = DateTime.Now,
                         Description = "Kickoff",
                         Attachments = new List<AttachmentDTO>
                         {
@@ -259,7 +259,7 @@ namespace HCP_Portal_Events.Tests
                         },
                         Speakers = new List<SpeakerDTO>
                         {
-                            new SpeakerDTO { Id = 1, UserName = "Dr. Smith", Speciality = "Cardiology", ProfilePicture = "smith.jpg" }
+                            new SpeakerDTO { Id = 1, UserName = "Dr. Smith", SpecialityName = "Cardiology", ProfilePicture = "smith.jpg" }
                         }
                     }
                 }

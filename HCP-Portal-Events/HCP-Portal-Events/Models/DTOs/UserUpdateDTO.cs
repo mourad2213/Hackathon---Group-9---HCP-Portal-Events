@@ -7,8 +7,8 @@
         public string Email { get; set; }
         public long PhoneNumber { get; set; }
 
-        public IFormFile? ProfilePicture { get; set; } 
-        public string? ProfilePicturePath { get; set; }
+        public IFormFile ProfilePicture { get; set; } 
+        public string ProfilePicturePath { get; set; }
     }
 
 
