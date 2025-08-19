@@ -116,7 +116,9 @@ namespace HCP_Portal_Events.DataAccess.Reposatiores
                         {
                             Id = a.Id,
                             Title = a.Title,
+
                             ActivityStartTime = a.Date,
+                            DayorModule_No = a.DayorModule_No,
                             Description = a.Description,
                             Attachments = a.Attachments
                                 .Select(att => new AttachmentDTO

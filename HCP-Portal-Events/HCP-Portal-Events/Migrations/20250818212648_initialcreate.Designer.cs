@@ -12,8 +12,8 @@ using MyApiProject.Data;
 namespace HCP_Portal_Events.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250818173322_RenameDateToEventCreatedDate")]
-    partial class RenameDateToEventCreatedDate
+    [Migration("20250818212648_initialcreate")]
+    partial class initialcreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,6 +39,9 @@ namespace HCP_Portal_Events.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("DayorModule_No")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
@@ -50,9 +53,6 @@ namespace HCP_Portal_Events.Migrations
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
-
-                    b.Property<int>("no")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -68,30 +68,30 @@ namespace HCP_Portal_Events.Migrations
                             Id = 1,
                             ActivityTypeId = 1,
                             Date = new DateTime(2025, 1, 26, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            DayorModule_No = 1,
                             Description = "Introduction to cardiology principles",
                             EventId = 1,
-                            Title = "Cardio Basics Module",
-                            no = 1
+                            Title = "Cardio Basics Module"
                         },
                         new
                         {
                             Id = 2,
                             ActivityTypeId = 2,
                             Date = new DateTime(2024, 12, 22, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            DayorModule_No = 2,
                             Description = "Hands-on pediatric patient care",
                             EventId = 2,
-                            Title = "Pediatric Care Activity",
-                            no = 2
+                            Title = "Pediatric Care Activity"
                         },
                         new
                         {
                             Id = 3,
                             ActivityTypeId = 1,
                             Date = new DateTime(2025, 1, 6, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            DayorModule_No = 1,
                             Description = "Fundamentals of neurology",
                             EventId = 3,
-                            Title = "Neuro Module 1",
-                            no = 1
+                            Title = "Neuro Module 1"
                         });
                 });
 
@@ -145,7 +145,7 @@ namespace HCP_Portal_Events.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Type")
+                    b.Property<string>("ActivityTypeName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -156,12 +156,12 @@ namespace HCP_Portal_Events.Migrations
                         new
                         {
                             Id = 1,
-                            Type = "Module"
+                            ActivityTypeName = "Module"
                         },
                         new
                         {
                             Id = 2,
-                            Type = "Activity"
+                            ActivityTypeName = "Activity"
                         });
                 });
 
@@ -254,7 +254,7 @@ namespace HCP_Portal_Events.Migrations
                     b.Property<string>("Status")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("nvarchar(max)")
-                        .HasComputedColumnSql("CASE WHEN [Date] < GETDATE() THEN 'Previous' ELSE 'Upcoming' END", false);
+                        .HasComputedColumnSql("CASE WHEN [EventCreatedDate] < GETDATE() THEN 'Previous' ELSE 'Upcoming' END", false);
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -363,7 +363,7 @@ namespace HCP_Portal_Events.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Type")
+                    b.Property<string>("EventTypeName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -374,12 +374,12 @@ namespace HCP_Portal_Events.Migrations
                         new
                         {
                             Id = 1,
-                            Type = "CME"
+                            EventTypeName = "CME"
                         },
                         new
                         {
                             Id = 2,
-                            Type = "Webinar"
+                            EventTypeName = "Webinar"
                         });
                 });
 

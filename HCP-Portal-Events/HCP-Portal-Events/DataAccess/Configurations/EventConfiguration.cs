@@ -36,7 +36,7 @@ namespace HCP_Portal_Events.DataAccess.Configurations
 
             builder.Property(e => e.Status)
     .HasComputedColumnSql(
-        "CASE WHEN [Date] < GETDATE() THEN 'Previous' ELSE 'Upcoming' END",
+        "CASE WHEN [EventCreatedDate] < GETDATE() THEN 'Previous' ELSE 'Upcoming' END",
         stored: false 
     );
             

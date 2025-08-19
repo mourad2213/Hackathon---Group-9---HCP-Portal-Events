@@ -36,6 +36,9 @@ namespace HCP_Portal_Events.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("DayorModule_No")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
@@ -47,9 +50,6 @@ namespace HCP_Portal_Events.Migrations
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
-
-                    b.Property<int>("no")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -65,30 +65,100 @@ namespace HCP_Portal_Events.Migrations
                             Id = 1,
                             ActivityTypeId = 1,
                             Date = new DateTime(2025, 1, 26, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            DayorModule_No = 1,
                             Description = "Introduction to cardiology principles",
                             EventId = 1,
-                            Title = "Cardio Basics Module",
-                            no = 1
+                            Title = "Cardio Basics Module"
                         },
                         new
                         {
                             Id = 2,
-                            ActivityTypeId = 2,
-                            Date = new DateTime(2024, 12, 22, 9, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Hands-on pediatric patient care",
-                            EventId = 2,
-                            Title = "Pediatric Care Activity",
-                            no = 2
+                            ActivityTypeId = 1,
+                            Date = new DateTime(2025, 1, 27, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            DayorModule_No = 2,
+                            Description = "In-depth cardiology practices",
+                            EventId = 1,
+                            Title = "Advanced Cardio Module"
                         },
                         new
                         {
                             Id = 3,
+                            ActivityTypeId = 2,
+                            Date = new DateTime(2024, 12, 22, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            DayorModule_No = 1,
+                            Description = "Hands-on pediatric patient care",
+                            EventId = 2,
+                            Title = "Pediatric Care Activity"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ActivityTypeId = 1,
+                            Date = new DateTime(2024, 12, 23, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            DayorModule_No = 2,
+                            Description = "Latest research findings in pediatrics",
+                            EventId = 2,
+                            Title = "Pediatric Research Module"
+                        },
+                        new
+                        {
+                            Id = 5,
                             ActivityTypeId = 1,
                             Date = new DateTime(2025, 1, 6, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            DayorModule_No = 1,
                             Description = "Fundamentals of neurology",
                             EventId = 3,
-                            Title = "Neuro Module 1",
-                            no = 1
+                            Title = "Neuro Module 1"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ActivityTypeId = 1,
+                            Date = new DateTime(2025, 1, 7, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            DayorModule_No = 2,
+                            Description = "Advanced neurology topics",
+                            EventId = 3,
+                            Title = "Neuro Module 2"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ActivityTypeId = 1,
+                            Date = new DateTime(2025, 2, 16, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            DayorModule_No = 1,
+                            Description = "Cancer biology and basics",
+                            EventId = 4,
+                            Title = "Oncology Module 1"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ActivityTypeId = 1,
+                            Date = new DateTime(2025, 2, 17, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            DayorModule_No = 2,
+                            Description = "Therapeutic strategies in oncology",
+                            EventId = 4,
+                            Title = "Oncology Module 2"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ActivityTypeId = 2,
+                            Date = new DateTime(2024, 12, 28, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            DayorModule_No = 1,
+                            Description = "Annual GP best practices",
+                            EventId = 5,
+                            Title = "GP Update Activity 1"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            ActivityTypeId = 2,
+                            Date = new DateTime(2024, 12, 29, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            DayorModule_No = 2,
+                            Description = "Case studies for general practitioners",
+                            EventId = 5,
+                            Title = "GP Update Activity 2"
                         });
                 });
 
@@ -114,23 +184,48 @@ namespace HCP_Portal_Events.Migrations
                         },
                         new
                         {
-                            ActivityId = 1,
+                            ActivityId = 2,
                             UserId = 2
                         },
                         new
                         {
-                            ActivityId = 2,
+                            ActivityId = 3,
                             UserId = 3
                         },
                         new
                         {
-                            ActivityId = 3,
+                            ActivityId = 4,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            ActivityId = 5,
                             UserId = 2
                         },
                         new
                         {
-                            ActivityId = 3,
+                            ActivityId = 6,
                             UserId = 4
+                        },
+                        new
+                        {
+                            ActivityId = 7,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            ActivityId = 8,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            ActivityId = 9,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            ActivityId = 10,
+                            UserId = 3
                         });
                 });
 
@@ -142,7 +237,7 @@ namespace HCP_Portal_Events.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Type")
+                    b.Property<string>("ActivityTypeName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -153,12 +248,12 @@ namespace HCP_Portal_Events.Migrations
                         new
                         {
                             Id = 1,
-                            Type = "Module"
+                            ActivityTypeName = "Module"
                         },
                         new
                         {
                             Id = 2,
-                            Type = "Activity"
+                            ActivityTypeName = "Activity"
                         });
                 });
 
@@ -193,22 +288,71 @@ namespace HCP_Portal_Events.Migrations
                         {
                             Id = 1,
                             ActivityId = 1,
-                            FileName = "cardio-module.pdf",
-                            FilePath = "/files/cardio-module.pdf"
+                            FileName = "cardio-module1.pdf",
+                            FilePath = "/files/cardio-module1.pdf"
                         },
                         new
                         {
                             Id = 2,
                             ActivityId = 2,
-                            FileName = "pediatric-activity.pdf",
-                            FilePath = "/files/pediatric-activity.pdf"
+                            FileName = "cardio-module2.pdf",
+                            FilePath = "/files/cardio-module2.pdf"
                         },
                         new
                         {
                             Id = 3,
                             ActivityId = 3,
+                            FileName = "pediatric-activity.pdf",
+                            FilePath = "/files/pediatric-activity.pdf"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ActivityId = 4,
+                            FileName = "pediatric-research.pdf",
+                            FilePath = "/files/pediatric-research.pdf"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ActivityId = 5,
                             FileName = "neuro-module1.pdf",
                             FilePath = "/files/neuro-module1.pdf"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ActivityId = 6,
+                            FileName = "neuro-module2.pdf",
+                            FilePath = "/files/neuro-module2.pdf"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ActivityId = 7,
+                            FileName = "oncology-module1.pdf",
+                            FilePath = "/files/oncology-module1.pdf"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ActivityId = 8,
+                            FileName = "oncology-module2.pdf",
+                            FilePath = "/files/oncology-module2.pdf"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ActivityId = 9,
+                            FileName = "gp-activity1.pdf",
+                            FilePath = "/files/gp-activity1.pdf"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            ActivityId = 10,
+                            FileName = "gp-activity2.pdf",
+                            FilePath = "/files/gp-activity2.pdf"
                         });
                 });
 
@@ -220,12 +364,12 @@ namespace HCP_Portal_Events.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EventCreatedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("EventSpecialityId")
                         .HasColumnType("int");
@@ -251,7 +395,7 @@ namespace HCP_Portal_Events.Migrations
                     b.Property<string>("Status")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("nvarchar(max)")
-                        .HasComputedColumnSql("CASE WHEN [Date] < GETDATE() THEN 'Previous' ELSE 'Upcoming' END", false);
+                        .HasComputedColumnSql("CASE WHEN [EventCreatedDate] < GETDATE() THEN 'Previous' ELSE 'Upcoming' END", false);
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -272,8 +416,8 @@ namespace HCP_Portal_Events.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2025, 10, 28, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Continuing Medical Education for Cardiology",
+                            EventCreatedDate = new DateTime(2025, 1, 31, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             EventSpecialityId = 1,
                             EventTypeId = 1,
                             ImageUrl = "\\images\\events\\OIP (1).jpeg",
@@ -285,8 +429,8 @@ namespace HCP_Portal_Events.Migrations
                         new
                         {
                             Id = 2,
-                            Date = new DateTime(2024, 12, 17, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Latest updates in pediatric medicine",
+                            EventCreatedDate = new DateTime(2024, 12, 17, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             EventSpecialityId = 3,
                             EventTypeId = 1,
                             ImageUrl = "\\images\\events\\OIP (1).webp",
@@ -298,8 +442,8 @@ namespace HCP_Portal_Events.Migrations
                         new
                         {
                             Id = 3,
-                            Date = new DateTime(2025, 1, 8, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Monthly webinars on neurology advancements",
+                            EventCreatedDate = new DateTime(2025, 1, 8, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             EventSpecialityId = 2,
                             EventTypeId = 2,
                             ImageUrl = "\\images\\events\\OIP (2).webp",
@@ -311,8 +455,8 @@ namespace HCP_Portal_Events.Migrations
                         new
                         {
                             Id = 4,
-                            Date = new DateTime(2025, 2, 15, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Recent advances in cancer treatment",
+                            EventCreatedDate = new DateTime(2025, 2, 15, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             EventSpecialityId = 4,
                             EventTypeId = 2,
                             ImageUrl = "\\images\\events\\OIP.jpeg",
@@ -324,8 +468,8 @@ namespace HCP_Portal_Events.Migrations
                         new
                         {
                             Id = 5,
-                            Date = new DateTime(2024, 12, 27, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Important updates for general practitioners",
+                            EventCreatedDate = new DateTime(2024, 12, 27, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             EventSpecialityId = 5,
                             EventTypeId = 2,
                             ImageUrl = "\\images\\events\\OIP.webp",
@@ -344,7 +488,7 @@ namespace HCP_Portal_Events.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Status")
+                    b.Property<string>("EventStatusName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -360,7 +504,7 @@ namespace HCP_Portal_Events.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Type")
+                    b.Property<string>("EventTypeName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -371,12 +515,12 @@ namespace HCP_Portal_Events.Migrations
                         new
                         {
                             Id = 1,
-                            Type = "CME"
+                            EventTypeName = "CME"
                         },
                         new
                         {
                             Id = 2,
-                            Type = "Webinar"
+                            EventTypeName = "Webinar"
                         });
                 });
 
