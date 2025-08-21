@@ -55,15 +55,22 @@ namespace HCP_Portal_Events.Controllers
 
                 if (userUpdateDto.ProfilePicture != null)
                 {
-                    var fileName = $"{Guid.NewGuid()}_{userUpdateDto.ProfilePicture.FileName}";
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\users", fileName);
+                    var fileName = $"{Guid.NewGuid()}_{Path.GetFileName(userUpdateDto.ProfilePicture.FileName)}";
+                    var uploadDir = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "users");
+
+                    if (!Directory.Exists(uploadDir))
+                    {
+                        Directory.CreateDirectory(uploadDir);
+                    }
+
+                    var filePath = Path.Combine(uploadDir, fileName);
 
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
                         await userUpdateDto.ProfilePicture.CopyToAsync(stream);
                     }
 
-                    userUpdateDto.ProfilePicturePath = $"\\images\\users\\{fileName}";
+                    userUpdateDto.ProfilePicturePath = $"/images/users/{fileName}";
                 }
                 else
                 {
@@ -73,7 +80,7 @@ namespace HCP_Portal_Events.Controllers
                 await _unitOfWork.UserRepositiory.UpdateUserAsync(id, userUpdateDto);
                 await _unitOfWork.CompleteAsync();
 
-                return NoContent();
+                return Ok(new { message = "User updated successfully", profilePicture = userUpdateDto.ProfilePicturePath });
             }
             catch (Exception ex)
             {
@@ -84,6 +91,7 @@ namespace HCP_Portal_Events.Controllers
                 });
             }
         }
+
 
 
         // GET: api/Users/5/previous-events

@@ -55,21 +55,23 @@ namespace MyApiProject.Data
 
             // Users
             modelBuilder.Entity<User>().HasData(
-                new User { Id = 1, UserName = "dr_smith", Email = "dr.smith@example.com", PhoneNumber = 1234567890, ProfilePicture = "\\images\\users\\download.webp", SpecialityId = 1 },
-                new User { Id = 2, UserName = "dr_jones", Email = "dr.jones@example.com", PhoneNumber = 2345678901, ProfilePicture = "\\images\\users\\OIP (1).jpeg", SpecialityId = 2 },
-                new User { Id = 3, UserName = "dr_williams", Email = "dr.williams@example.com", PhoneNumber = 3456789012, ProfilePicture = "\\images\\users\\OIP (1).webp", SpecialityId = 3 },
-                new User { Id = 4, UserName = "dr_brown", Email = "dr.brown@example.com", PhoneNumber = 4567890123, ProfilePicture = "\\images\\users\\OIP.jpeg", SpecialityId = 4 },
-                new User { Id = 5, UserName = "dr_taylor", Email = "dr.taylor@example.com", PhoneNumber = 5678901234, ProfilePicture = "\\images\\users\\OIP.webp", SpecialityId = 5 }
-            );
+                 new User { Id = 1, UserName = "dr_smith", Email = "dr.smith@example.com", PhoneNumber = 1234567890, ProfilePicture = "/images/users/download.webp", SpecialityId = 1 },
+                 new User { Id = 2, UserName = "dr_jones", Email = "dr.jones@example.com", PhoneNumber = 2345678901, ProfilePicture = "/images/users/OIP_1.jpeg", SpecialityId = 2 },
+                 new User { Id = 3, UserName = "dr_williams", Email = "dr.williams@example.com", PhoneNumber = 3456789012, ProfilePicture = "/images/users/OIP_2.webp", SpecialityId = 3 },
+                 new User { Id = 4, UserName = "dr_brown", Email = "dr.brown@example.com", PhoneNumber = 4567890123, ProfilePicture = "/images/users/OIP_3.jpeg", SpecialityId = 4 },
+                 new User { Id = 5, UserName = "dr_taylor", Email = "dr.taylor@example.com", PhoneNumber = 5678901234, ProfilePicture = "/images/users/OIP_4.webp", SpecialityId = 5 }
+             );
+
 
             // Events
             modelBuilder.Entity<Event>().HasData(
-                new Event { Id = 1, Title = "Cardiology CME 2023", Description = "Continuing Medical Education for Cardiology", EventCreatedDate = baseDate.AddDays(300), NoOfAttendees = 120, ImageUrl = "\\images\\events\\OIP (1).jpeg", EventTypeId = 1, Status = "Upcoming", LinkToEvent = "https://zoom.us/cardio-cme-2023", EventSpecialityId = 1 },
-                new Event { Id = 2, Title = "Pediatric CME Update", Description = "Latest updates in pediatric medicine", EventCreatedDate = baseDate.AddDays(0), NoOfAttendees = 80, ImageUrl = "\\images\\events\\OIP (1).webp", EventTypeId = 1, Status = "Previous", LinkToEvent = "", EventSpecialityId = 3 },
-                new Event { Id = 3, Title = "Neurology Webinar Series", Description = "Monthly webinars on neurology advancements", EventCreatedDate = baseDate.AddDays(301), NoOfAttendees = 75, ImageUrl = "\\images\\events\\OIP (2).webp", EventTypeId = 2, Status = "Upcoming", LinkToEvent = "https://zoom.us/neuro-webinar", EventSpecialityId = 2 },
-                new Event { Id = 4, Title = "Oncology Webinar", Description = "Recent advances in cancer treatment", EventCreatedDate = baseDate.AddDays(45), NoOfAttendees = 90, ImageUrl = "\\images\\events\\OIP.jpeg", EventTypeId = 2, Status = "Previous", LinkToEvent = "https://zoom.us/onco-webinar", EventSpecialityId = 4 },
-                new Event { Id = 5, Title = "GP Webinar: Annual Updates", Description = "Important updates for general practitioners", EventCreatedDate = baseDate.AddDays(-5), NoOfAttendees = 150, ImageUrl = "\\images\\events\\OIP.webp", EventTypeId = 2, Status = "Previous", LinkToEvent = "", EventSpecialityId = 5 }
+                new Event { Id = 1, Title = "Cardiology CME 2023", Description = "Continuing Medical Education for Cardiology", EventCreatedDate = baseDate.AddDays(300), NoOfAttendees = 120, ImageUrl = "/images/events/OIP (1).jpeg", EventTypeId = 1, Status = "Upcoming", LinkToEvent = "https://zoom.us/cardio-cme-2023", EventSpecialityId = 1 },
+                new Event { Id = 2, Title = "Pediatric CME Update", Description = "Latest updates in pediatric medicine", EventCreatedDate = baseDate.AddDays(0), NoOfAttendees = 80, ImageUrl = "/images/events/OIP (1).webp", EventTypeId = 1, Status = "Previous", LinkToEvent = "", EventSpecialityId = 3 },
+                new Event { Id = 3, Title = "Neurology Webinar Series", Description = "Monthly webinars on neurology advancements", EventCreatedDate = baseDate.AddDays(301), NoOfAttendees = 75, ImageUrl = "/images/events/OIP (2).webp", EventTypeId = 2, Status = "Upcoming", LinkToEvent = "https://zoom.us/neuro-webinar", EventSpecialityId = 2 },
+                new Event { Id = 4, Title = "Oncology Webinar", Description = "Recent advances in cancer treatment", EventCreatedDate = baseDate.AddDays(45), NoOfAttendees = 90, ImageUrl = "/images/events/OIP.jpeg", EventTypeId = 2, Status = "Previous", LinkToEvent = "https://zoom.us/onco-webinar", EventSpecialityId = 4 },
+                new Event { Id = 5, Title = "GP Webinar: Annual Updates", Description = "Important updates for general practitioners", EventCreatedDate = baseDate.AddDays(-5), NoOfAttendees = 150, ImageUrl = "/images/events/OIP.webp", EventTypeId = 2, Status = "Previous", LinkToEvent = "", EventSpecialityId = 5 }
             );
+
 
             // Registrations
             var registrationBase = baseDate.AddDays(-20);
