@@ -29,6 +29,7 @@ builder.Services.AddCors(options =>
         });
 });
 
+
 builder.Services.AddDbContext<ApplicationDbContext>((provider, options) =>
 {
     options.UseSqlServer(
@@ -41,7 +42,6 @@ builder.Services.AddDbContext<ApplicationDbContext>((provider, options) =>
                 errorNumbersToAdd: null);
         });
 });
-
 builder.Services.AddScoped<IUserRegistrationRepository, UserRegistrationRepository>();
 builder.Services.AddScoped<IEventRepository, EventRepository>();
 builder.Services.AddScoped<IUserRepositiories, UserRepositories>();
@@ -54,9 +54,8 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 
-
-app.UseHttpsRedirection();
 app.UseCors("AllowAll");
+app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseStaticFiles();

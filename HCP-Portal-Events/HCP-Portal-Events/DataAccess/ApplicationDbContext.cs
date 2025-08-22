@@ -56,10 +56,10 @@ namespace MyApiProject.Data
             // Users
             modelBuilder.Entity<User>().HasData(
                  new User { Id = 1, UserName = "dr_smith", Email = "dr.smith@example.com", PhoneNumber = 1234567890, ProfilePicture = "/images/users/download.webp", SpecialityId = 1 },
-                 new User { Id = 2, UserName = "dr_jones", Email = "dr.jones@example.com", PhoneNumber = 2345678901, ProfilePicture = "/images/users/OIP_1.jpeg", SpecialityId = 2 },
-                 new User { Id = 3, UserName = "dr_williams", Email = "dr.williams@example.com", PhoneNumber = 3456789012, ProfilePicture = "/images/users/OIP_2.webp", SpecialityId = 3 },
-                 new User { Id = 4, UserName = "dr_brown", Email = "dr.brown@example.com", PhoneNumber = 4567890123, ProfilePicture = "/images/users/OIP_3.jpeg", SpecialityId = 4 },
-                 new User { Id = 5, UserName = "dr_taylor", Email = "dr.taylor@example.com", PhoneNumber = 5678901234, ProfilePicture = "/images/users/OIP_4.webp", SpecialityId = 5 }
+                 new User { Id = 2, UserName = "dr_jones", Email = "dr.jones@example.com", PhoneNumber = 2345678901, ProfilePicture = "//images/users/download.webp", SpecialityId = 2 },
+                 new User { Id = 3, UserName = "dr_williams", Email = "dr.williams@example.com", PhoneNumber = 3456789012, ProfilePicture = "/images/users/download.webp", SpecialityId = 3 },
+                 new User { Id = 4, UserName = "dr_brown", Email = "dr.brown@example.com", PhoneNumber = 4567890123, ProfilePicture = "/images/users/download.webp", SpecialityId = 4 },
+                 new User { Id = 5, UserName = "dr_taylor", Email = "dr.taylor@example.com", PhoneNumber = 5678901234, ProfilePicture = "/images/users/download.webp", SpecialityId = 5 }
              );
 
 
